@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     # Houston is default area
     mapBounds = {
-        "west": -96.05,
+        "west": -96.0,
         "east": -94.7,
         "south": 29.2,
         "north": 30.4,
