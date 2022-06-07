@@ -1,4 +1,4 @@
-# ZillowListingsScraper
+# ZillowListingsScraper (depreciated)
 Scrapes Zillow's listings through url manipulation.
 
 # Instructions:
