@@ -6,12 +6,11 @@ from bs4 import BeautifulSoup
 import csv
 import math
 import pandas as pd
-import time
+from redfin import Redfin
 
 def scrapeProxies():
     resp = requests.get('https://free-proxy-list.net/') 
     df = pd.read_html(resp.text)[0]
-    # df = df.loc[df['Https'] == 'yes']
     return df
 
 # manipulate url to get the listings around the given lat, lng and page
@@ -21,7 +20,6 @@ def scrapeZillow(url, northLatBound, westLngBound, pageNum):
     paginationIndex = url.find('pagination')
     mapBoundsIndex = url.find('mapBounds')
     isMapVisibleIndex = url.find('isMapVisible')
-
     
     # manipulate url's page and mapBounds
     while True:
@@ -31,11 +29,9 @@ def scrapeZillow(url, northLatBound, westLngBound, pageNum):
                 'https': f'http://{row["IP Address"]}:{row["Port"]}',
             }       
             print(index, proxy, row['Https'])
-            start_time = time.time()
             try:
                 paginatedUrl = url[:paginationIndex+19] + '%22currentPage%22%3A' + str(pageNum) + '%7D%2C%22' + url[paginationIndex+28:mapBoundsIndex] + 'mapBounds%22%3A%7B%22west%22%3A' + str(westLngBound) + '%2C%22east%22%3A' + str(westLngBound+0.1) + '%2C%22south%22%3A' + str(northLatBound-0.1) + '%2C%22north%22%3A' + str(northLatBound) + '%7D%2C%22' + url[isMapVisibleIndex:]
-                soup = BeautifulSoup(requests.get(paginatedUrl, headers=headers, allow_redirects=False, proxies=proxy, timeout=1).content, "html.parser")
-                print('seconds:', time.time() - start_time)
+                soup = BeautifulSoup(requests.get(paginatedUrl, headers=headers, allow_redirects=False, proxies=proxy, timeout=5).content, "html.parser")
                 data = json.loads(
                     soup.select_one("script[data-zrr-shared-data-key]")
                     .contents[0]
@@ -44,7 +40,15 @@ def scrapeZillow(url, northLatBound, westLngBound, pageNum):
             except:
                 continue
             return data
-            
+
+def scrapeRedfin(address):
+    rf = Redfin()
+    response = rf.search(address)
+    url = response['payload']['exactMatch']['url']
+    initial_info = rf.initial_info(url)
+    property_id = initial_info['payload']['propertyId']
+    mls_data = rf.below_the_fold(property_id)
+    return mls_data
 
 def getRentEstimate(listing):
     # if monthly rent estimate doesn't exist, set rent estimate to 0
@@ -60,11 +64,23 @@ def getDaysOnZillow(listing):
     else:
         return 0
 
-def isFloat(n):
-    # check if n is a valid number
-    return n.lstring('-').replace('.', '', 1).isDigit()
+def getSchoolsRating(mls_data):
+    try:
+        str = mls_data['payload']['schoolsAndDistrictsInfo']['sectionPreviewText']
+        numberFound = False
+        numStr = ""
+        for c in str:
+            if (c.isdigit() or c == '.'):
+                numberFound = True
+                numStr += c
 
-proxies = scrapeProxies()
+            if(numberFound and not (c.isdigit() or c == '.')):
+                break
+
+        return numStr
+    except:
+        return 0
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -118,7 +134,7 @@ if __name__ == "__main__":
     # scrape Zillow
     with open('./output.tsv', 'w', newline="") as out_file:
         tsv_writer = csv.writer(out_file, delimiter='\t')         # init file writer
-        tsv_writer.writerow(['Zipcode', 'Days on Zillow', 'Status', 'Url', 'ImageUrl', 'Price', 'Rent Estimate'])         # create header row in tsv file
+        tsv_writer.writerow([ 'Days on Zillow', 'Status', 'Url', 'ImageUrl', 'Price', 'Zipcode', 'Address', 'House Size', 'Lot Size', 'Year Built', 'Schools Rating', 'Rent Estimate', 'Rent to Price'])         # create header row in tsv file
 
 
         # get number of times 0.1 latitudes can go between the north and south map bounds
@@ -130,32 +146,50 @@ if __name__ == "__main__":
 
         for deltaLat in range(rows):
             for deltaLng in range(cols):
-                # try:
+                proxies = scrapeProxies()
+
                 # get north and west bound in this map section
                 northLatBound = mapBounds['north'] - 0.1 * deltaLat
                 westLngBound = mapBounds['west'] + 0.1 * deltaLng
 
-                totalPages = scrapeZillow(url, northLatBound, westLngBound, 1)['cat1']['searchList']['totalPages']  # get total pages in this map section
+                pg1_listings = scrapeZillow(url, northLatBound, westLngBound, 1)
+                totalPages = pg1_listings['cat1']['searchList']['totalPages']  # get total pages in this map section
                 print(f"searching section ({deltaLat},{deltaLng}): {totalPages} total pages...",)
 
                 # loop each page
                 for page in range(1, totalPages + 1):
                     print(f'getting data from page {page}')
-                    listings = scrapeZillow(url, northLatBound, westLngBound, page)
+                    if page == 1:
+                        listings = pg1_listings
+                    else:
+                        listings = scrapeZillow(url, northLatBound, westLngBound, page)
                     if (args.verbose): print(json.dumps(listings, indent=4))
 
                     # loop each listing
                     for listing in listings["cat1"]['searchResults']['listResults']:
 
+                        homeInfo = listing['hdpData']['homeInfo']
+
                         # write listing data to tsv file
-                        zip = listing['hdpData']['homeInfo']['zipcode']
                         numDays = getDaysOnZillow(listing)
                         statusText = listing['statusText']
                         zillowUrl = listing['detailUrl']
                         image = listing['imgSrc']
                         price = listing['unformattedPrice']
+                        zip = homeInfo['zipcode']
+                        address = f"{homeInfo['streetAddress']}, {homeInfo['city']}, {homeInfo['state']} {homeInfo['zipcode']}"
+                        try:
+                            print(address)
+                            redfinData = scrapeRedfin(address)
+                            houseSize = redfinData['payload']['publicRecordsInfo']['totalSqFt']
+                            lotSize = redfinData['payload']['publicRecordsInfo']['lotSqFt']
+                            yearBuilt = redfinData['payload']['publicRecordsInfo']['yearBuilt']
+                            schoolsRating = getSchoolsRating(redfinData)
+                        except:
+                            houseSize = 0
+                            lotSize = 0
+                            yearBuilt = 0
+                            schoolsRating = 0
                         rentZestimate = getRentEstimate(listing)
-
-                        tsv_writer.writerow([zip, numDays, statusText, zillowUrl, image, price, rentZestimate])
-                # except:                        
-                    # print('something went wrong with this section')
+                        rentToPrice = rentZestimate / price
+                        tsv_writer.writerow([numDays, statusText, zillowUrl, image, price, zip, address, houseSize, lotSize, yearBuilt, schoolsRating, rentZestimate, rentToPrice])

@@ -1,0 +1,2762 @@
+{
+  "queryState": {
+    "usersSearchTerm": "Houston, TX",
+    "mapBounds": {
+      "west": -96.0,
+      "east": -95.9,
+      "south": 30.299999999999997,
+      "north": 30.4
+    },
+    "isMapVisible": true,
+    "filterState": {
+      "isCondo": {
+        "value": false
+      },
+      "isApartment": {
+        "value": false
+      },
+      "isMultiFamily": {
+        "value": false
+      },
+      "isAllHomes": {
+        "value": true
+      },
+      "sortSelection": {
+        "value": "globalrelevanceex"
+      },
+      "isLotLand": {
+        "value": false
+      },
+      "isTownhouse": {
+        "value": false
+      },
+      "isManufactured": {
+        "value": false
+      },
+      "isApartmentOrCondo": {
+        "value": false
+      }
+    }
+  },
+  "filterDefinitions": {
+    "keywords": {
+      "id": "keywords",
+      "shortId": "att",
+      "labels": {
+        "default": "Keywords",
+        "tracking": "Keyword"
+      },
+      "sortOrder": 2,
+      "type": "String",
+      "defaultValue": {
+        "value": ""
+      },
+      "exposedPillEnabled": true
+    },
+    "isPublicSchool": {
+      "id": "isPublicSchool",
+      "shortId": "schp",
+      "labels": {
+        "default": "Public"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isCityView": {
+      "id": "isCityView",
+      "shortId": "cityv",
+      "labels": {
+        "default": "City"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isWaterfront": {
+      "id": "isWaterfront",
+      "shortId": "wat",
+      "labels": {
+        "default": "Waterfront"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isCondo": {
+      "id": "isCondo",
+      "shortId": "con",
+      "labels": {
+        "default": "Condos/Co-ops"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "onlyRentalExcludeNullAvailabilityDates": {
+      "id": "onlyRentalExcludeNullAvailabilityDates",
+      "shortId": "enad",
+      "labels": {
+        "default": "Hide listings with no date provided"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      },
+      "exposedPillEnabled": true,
+      "ABTest": {
+        "RE_Move_In_Date_Filter": "TEST"
+      }
+    },
+    "isMountainView": {
+      "id": "isMountainView",
+      "shortId": "mouv",
+      "labels": {
+        "default": "Mountain"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "singleStory": {
+      "id": "singleStory",
+      "shortId": "sto",
+      "labels": {
+        "default": "Single-story only",
+        "tracking": "Single Story",
+        "valueFormatter": {
+          "true": "1 story"
+        }
+      },
+      "sortOrder": 8,
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      },
+      "exposedPillEnabled": true
+    },
+    "onlyRentalParkingAvailable": {
+      "id": "onlyRentalParkingAvailable",
+      "shortId": "parka",
+      "labels": {
+        "default": "On-site Parking"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "monthlyPayment": {
+      "id": "monthlyPayment",
+      "shortId": "mp",
+      "labels": {
+        "default": "Price",
+        "valueFormatter": {
+          "none": "Any",
+          "min": "${{min}}+",
+          "max": "Up to ${{max}}",
+          "minMax": "${{min}}-${{max}}",
+          "identicalMinMax": "${{min}}",
+          "numberFormatter": "0,0",
+          "inputFormatter": "0.[0]a"
+        }
+      },
+      "sortOrder": 1,
+      "type": "Range",
+      "defaultValue": {
+        "min": null,
+        "max": null
+      },
+      "suggestedEnums": [
+        {
+          "label": "$200",
+          "value": 200
+        },
+        {
+          "label": "$400",
+          "value": 400
+        },
+        {
+          "label": "$600",
+          "value": 600
+        },
+        {
+          "label": "$800",
+          "value": 800
+        },
+        {
+          "label": "$1,000",
+          "value": 1000
+        },
+        {
+          "label": "$1,200",
+          "value": 1200
+        },
+        {
+          "label": "$1,400",
+          "value": 1400
+        },
+        {
+          "label": "$1,600",
+          "value": 1600
+        },
+        {
+          "label": "$1,800",
+          "value": 1800
+        },
+        {
+          "label": "$2,000",
+          "value": 2000
+        },
+        {
+          "label": "$2,200",
+          "value": 2200
+        },
+        {
+          "label": "$2,400",
+          "value": 2400
+        },
+        {
+          "label": "$2,600",
+          "value": 2600
+        },
+        {
+          "label": "$2,800",
+          "value": 2800
+        },
+        {
+          "label": "$3,000",
+          "value": 3000
+        },
+        {
+          "label": "$3,500",
+          "value": 3500
+        },
+        {
+          "label": "$4,000",
+          "value": 4000
+        },
+        {
+          "label": "$4,500",
+          "value": 4500
+        },
+        {
+          "label": "$5,000",
+          "value": 5000
+        },
+        {
+          "label": "$5,500",
+          "value": 5500
+        },
+        {
+          "label": "$6,000",
+          "value": 6000
+        },
+        {
+          "label": "$7,000",
+          "value": 7000
+        },
+        {
+          "label": "$8,000",
+          "value": 8000
+        },
+        {
+          "label": "$9,000",
+          "value": 9000
+        },
+        {
+          "label": "$10,000",
+          "value": 10000
+        }
+      ],
+      "exposedPillEnabled": false
+    },
+    "price": {
+      "id": "price",
+      "labels": {
+        "default": "Price",
+        "long": "Price Range",
+        "valueFormatter": {
+          "none": "Any",
+          "min": "${{min}}+",
+          "max": "Up to ${{max}}",
+          "minMax": "${{min}}-${{max}}",
+          "identicalMinMax": "${{min}}",
+          "numberFormatter": "0,0",
+          "inputFormatter": "0.[0]a"
+        }
+      },
+      "sortOrder": 1,
+      "type": "Range",
+      "defaultValue": {
+        "min": null,
+        "max": null
+      },
+      "suggestedEnums": [
+        {
+          "label": "$100,000",
+          "value": 100000
+        },
+        {
+          "label": "$200,000",
+          "value": 200000
+        },
+        {
+          "label": "$300,000",
+          "value": 300000
+        },
+        {
+          "label": "$400,000",
+          "value": 400000
+        },
+        {
+          "label": "$500,000",
+          "value": 500000
+        },
+        {
+          "label": "$600,000",
+          "value": 600000
+        },
+        {
+          "label": "$700,000",
+          "value": 700000
+        },
+        {
+          "label": "$800,000",
+          "value": 800000
+        },
+        {
+          "label": "$900,000",
+          "value": 900000
+        },
+        {
+          "label": "$1M",
+          "value": 1000000
+        },
+        {
+          "label": "$1.25M",
+          "value": 1250000
+        },
+        {
+          "label": "$1.5M",
+          "value": 1500000
+        },
+        {
+          "label": "$1.75M",
+          "value": 1750000
+        },
+        {
+          "label": "$2M",
+          "value": 2000000
+        },
+        {
+          "label": "$2.25M",
+          "value": 2250000
+        },
+        {
+          "label": "$2.5M",
+          "value": 2500000
+        },
+        {
+          "label": "$2.75M",
+          "value": 2750000
+        },
+        {
+          "label": "$3M",
+          "value": 3000000
+        },
+        {
+          "label": "$4M",
+          "value": 4000000
+        },
+        {
+          "label": "$5M",
+          "value": 5000000
+        },
+        {
+          "label": "$6M",
+          "value": 6000000
+        },
+        {
+          "label": "$7M",
+          "value": 7000000
+        },
+        {
+          "label": "$8M",
+          "value": 8000000
+        },
+        {
+          "label": "$9M",
+          "value": 9000000
+        },
+        {
+          "label": "$10M",
+          "value": 10000000
+        }
+      ],
+      "exposedPillEnabled": false
+    },
+    "onlyPriceReduction": {
+      "id": "onlyPriceReduction",
+      "labels": {
+        "default": "Price Reduction"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "onlyRentalAcceptsApplications": {
+      "id": "onlyRentalAcceptsApplications",
+      "shortId": "app",
+      "labels": {
+        "default": "Accepts Zillow Applications"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "SEOTypedIdField": {
+      "id": "SEOTypedIdField",
+      "shortId": "seo",
+      "labels": {
+        "default": "SEO"
+      },
+      "defaultValue": {
+        "value": null,
+        "field": null,
+        "id": null
+      }
+    },
+    "sqft": {
+      "id": "sqft",
+      "labels": {
+        "default": "Square Feet",
+        "short": "Sqft",
+        "valueFormatter": {
+          "none": "Any",
+          "min": "{{min}}+",
+          "max": "<{{max}}",
+          "minMax": "{{min}}-{{max}}",
+          "identicalMinMax": "{{min}}",
+          "numberFormatter": "0,0",
+          "inputFormatter": "0,0"
+        }
+      },
+      "sortOrder": 4,
+      "type": "Range",
+      "defaultValue": {
+        "min": null,
+        "max": null
+      },
+      "suggestedEnums": [
+        {
+          "label": "500",
+          "value": 500
+        },
+        {
+          "label": "750",
+          "value": 750
+        },
+        {
+          "label": "1,000",
+          "value": 1000
+        },
+        {
+          "label": "1,250",
+          "value": 1250
+        },
+        {
+          "label": "1,500",
+          "value": 1500
+        },
+        {
+          "label": "1,750",
+          "value": 1750
+        },
+        {
+          "label": "2,000",
+          "value": 2000
+        },
+        {
+          "label": "2,250",
+          "value": 2250
+        },
+        {
+          "label": "2,500",
+          "value": 2500
+        },
+        {
+          "label": "2,750",
+          "value": 2750
+        },
+        {
+          "label": "3,000",
+          "value": 3000
+        },
+        {
+          "label": "3,500",
+          "value": 3500
+        },
+        {
+          "label": "4,000",
+          "value": 4000
+        },
+        {
+          "label": "5,000",
+          "value": 5000
+        },
+        {
+          "label": "7,500",
+          "value": 7500
+        }
+      ],
+      "exposedPillEnabled": true,
+      "ABTest": {
+        "SXP_VISUAL_AUDIT_2021": "CONTROL"
+      }
+    },
+    "isZillowOwnedOnly": {
+      "id": "isZillowOwnedOnly",
+      "shortId": "zo",
+      "labels": {
+        "default": "",
+        "tracking": "Zillow Owned"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isForRent": {
+      "id": "isForRent",
+      "shortId": "fr",
+      "labels": {
+        "default": "For Rent"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "onlyRentalRequestedAvailabilityDate": {
+      "id": "onlyRentalRequestedAvailabilityDate",
+      "shortId": "rad",
+      "labels": {
+        "default": "Move-in Date"
+      },
+      "type": "String",
+      "defaultValue": {
+        "value": ""
+      },
+      "exposedPillEnabled": true,
+      "ABTest": {
+        "RE_Move_In_Date_Filter": "TEST"
+      }
+    },
+    "isForSaleByOwner": {
+      "id": "isForSaleByOwner",
+      "shortId": "fsbo",
+      "labels": {
+        "default": "By Owner"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      },
+      "ABTest": {
+        "SXP_NONMLS_OFF": "CONTROL",
+        "MIGHTY_MONTH_2022_HOLDOUT": "MIGHTY_MONTH_ON"
+      }
+    },
+    "hasAirConditioning": {
+      "id": "hasAirConditioning",
+      "shortId": "ac",
+      "labels": {
+        "default": "Must have A/C",
+        "tracking": "AC"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isApartment": {
+      "id": "isApartment",
+      "shortId": "apa",
+      "labels": {
+        "default": "Apartments"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "sortSelection": {
+      "id": "sortSelection",
+      "shortId": "sort",
+      "labels": {
+        "default": "Sort",
+        "valueFormatter": {
+          "saved": "Date Saved",
+          "listingstatus": "Listing Status",
+          "mostrecentchange": "Most Recent Change",
+          "globalrelevanceex": "Homes for You",
+          "featured": "Verified Source",
+          "priced": "Price (High to Low)",
+          "pricea": "Price (Low to High)",
+          "paymentd": "Payment (High to Low)",
+          "paymenta": "Payment (Low to High)",
+          "days": "Newest",
+          "beds": "Bedrooms",
+          "baths": "Bathrooms",
+          "size": "Square Feet",
+          "lot": "Lot Size",
+          "zest": "Zestimate (High to Low)",
+          "zesta": "Zestimate (Low to High)",
+          "priorityscore": "Default"
+        }
+      },
+      "type": "Enum",
+      "defaultValue": {
+        "value": "priorityscore"
+      },
+      "allowedValues": {
+        "saved": "saved",
+        "listingstatus": "listingstatus",
+        "mostrecentchange": "mostrecentchange",
+        "globalrelevanceex": "globalrelevanceex",
+        "featured": "featured",
+        "priced": "priced",
+        "pricea": "pricea",
+        "paymentd": "paymentd",
+        "paymenta": "paymenta",
+        "days": "days",
+        "beds": "beds",
+        "baths": "baths",
+        "size": "size",
+        "lot": "lot",
+        "zest": "zest",
+        "zesta": "zesta",
+        "priorityscore": "priorityscore"
+      },
+      "ABTest": {
+        "RE_JanusBrainSort": "TEST_ALL_STATES"
+      }
+    },
+    "isMiddleSchool": {
+      "id": "isMiddleSchool",
+      "shortId": "schm",
+      "labels": {
+        "default": "Middle"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isWaterView": {
+      "id": "isWaterView",
+      "shortId": "watv",
+      "labels": {
+        "default": "Water"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isPrivateSchool": {
+      "id": "isPrivateSchool",
+      "shortId": "schr",
+      "labels": {
+        "default": "Private"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "onlyRentalIncomeRestricted": {
+      "id": "onlyRentalIncomeRestricted",
+      "shortId": "inc",
+      "labels": {
+        "default": "Income restricted"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isManufactured": {
+      "id": "isManufactured",
+      "shortId": "manu",
+      "labels": {
+        "default": "Manufactured"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "onlyRentalInUnitLaundry": {
+      "id": "onlyRentalInUnitLaundry",
+      "shortId": "lau",
+      "labels": {
+        "default": "In-unit Laundry"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isComingSoon": {
+      "id": "isComingSoon",
+      "shortId": "cmsn",
+      "labels": {
+        "default": "Coming Soon"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isSingleFamily": {
+      "id": "isSingleFamily",
+      "shortId": "sf",
+      "labels": {
+        "default": "Houses"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isForSaleForeclosure": {
+      "id": "isForSaleForeclosure",
+      "shortId": "fore",
+      "labels": {
+        "default": "Foreclosures"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isHighSchool": {
+      "id": "isHighSchool",
+      "shortId": "schh",
+      "labels": {
+        "default": "High"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "onlyWithPhotos": {
+      "id": "onlyWithPhotos",
+      "labels": {
+        "default": "Photos"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "hoa": {
+      "id": "hoa",
+      "labels": {
+        "default": "Max HOA",
+        "valueFormatter": {
+          "none": "Any",
+          "max": "${{max}}/month"
+        }
+      },
+      "sortOrder": 9,
+      "type": "Range",
+      "defaultValue": {
+        "min": null,
+        "max": null
+      },
+      "suggestedEnums": {
+        "Any": null,
+        "No HOA Fee": 0,
+        "$50/month": 50,
+        "$100/month": 100,
+        "$200/month": 200,
+        "$300/month": 300,
+        "$400/month": 400,
+        "$500/month": 500,
+        "$600/month": 600,
+        "$700/month": 700,
+        "$800/month": 800,
+        "$900/month": 900,
+        "$1000/month": 1000
+      },
+      "exposedPillEnabled": true
+    },
+    "beds": {
+      "id": "beds",
+      "labels": {
+        "default": "Beds",
+        "valueFormatter": {
+          "none": "Any",
+          "min": "{{min}}+",
+          "max": "<{{max}}",
+          "minMax": "{{min}}-{{max}}",
+          "identicalMinMax": {
+            "0": "Studio",
+            "default": "{{min}}"
+          }
+        }
+      },
+      "sortOrder": 1,
+      "type": "Range",
+      "subType": "ExactableMin",
+      "defaultValue": {
+        "min": null,
+        "max": null
+      },
+      "suggestedEnums": {
+        "default": [
+          {
+            "key": "Any",
+            "value": 0
+          },
+          {
+            "key": "1+",
+            "value": 1
+          },
+          {
+            "key": "2+",
+            "value": 2
+          },
+          {
+            "key": "3+",
+            "value": 3
+          },
+          {
+            "key": "4+",
+            "value": 4
+          },
+          {
+            "key": "5+",
+            "value": 5
+          }
+        ],
+        "exact": [
+          {
+            "key": "Studio",
+            "value": 0
+          },
+          {
+            "key": "1",
+            "value": 1
+          },
+          {
+            "key": "2",
+            "value": 2
+          },
+          {
+            "key": "3",
+            "value": 3
+          },
+          {
+            "key": "4",
+            "value": 4
+          },
+          {
+            "key": "5",
+            "value": 5
+          }
+        ]
+      },
+      "exposedPillEnabled": false
+    },
+    "isAllHomes": {
+      "id": "isAllHomes",
+      "shortId": "ah",
+      "labels": {
+        "default": "Off Market"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "ageRestricted55Plus": {
+      "id": "ageRestricted55Plus",
+      "shortId": "55plus",
+      "labels": {
+        "default": "Hide 55+ communities"
+      },
+      "type": "Enum",
+      "defaultValue": {
+        "value": "i"
+      },
+      "allowedValues": {
+        "i": "Include 55+ communities",
+        "e": "Exclude 55+ communities",
+        "o": "Show only 55+ communities"
+      }
+    },
+    "onlyRentalCatsAllowed": {
+      "id": "onlyRentalCatsAllowed",
+      "shortId": "cat",
+      "labels": {
+        "default": "Allows cats"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "includeSchoolsSelection": {
+      "id": "includeSchoolsSelection",
+      "labels": {
+        "default": "Include",
+        "valueFormatter": {
+          "highSchool": "high schools",
+          "middleSchool": "middle schools",
+          "elementarySchool": "elementary schools"
+        }
+      },
+      "type": "String",
+      "defaultValue": {
+        "highSchool": null,
+        "middleSchool": null,
+        "elementarySchool": null
+      }
+    },
+    "isCharterSchool": {
+      "id": "isCharterSchool",
+      "shortId": "schc",
+      "labels": {
+        "default": "Charter"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "onlyRentalPetsAllowed": {
+      "id": "onlyRentalPetsAllowed",
+      "shortId": "pet",
+      "labels": {
+        "default": "Pets Allowed"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isAuction": {
+      "id": "isAuction",
+      "shortId": "auc",
+      "labels": {
+        "default": "Auction"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      },
+      "ABTest": {
+        "SXP_NONMLS_OFF": "CONTROL",
+        "MIGHTY_MONTH_2022_HOLDOUT": "MIGHTY_MONTH_ON"
+      }
+    },
+    "is3dHome": {
+      "id": "is3dHome",
+      "shortId": "3d",
+      "labels": {
+        "default": "Must have 3D Tour",
+        "tracking": "3D Home"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      },
+      "ABTest": {
+        "RMX_3RD_PARTY_P1": "ON"
+      }
+    },
+    "isMultiFamily": {
+      "id": "isMultiFamily",
+      "shortId": "mf",
+      "labels": {
+        "default": "Multi-family"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "doz": {
+      "id": "doz",
+      "labels": {
+        "default": "Days on Zillow",
+        "soldInLast": "Sold in last",
+        "both": "Listed or Sold in last",
+        "valueFormatter": {
+          "any": "Any",
+          "1": "1 day",
+          "7": "7 days",
+          "14": "14 days",
+          "30": "30 days",
+          "90": "90 days",
+          "6m": "6 months",
+          "12m": "12 months",
+          "24m": "24 months",
+          "36m": "36 months"
+        }
+      },
+      "sortOrder": 7,
+      "type": "Enum",
+      "defaultValue": {
+        "value": "any"
+      },
+      "allowedValues": {
+        "any": null,
+        "1": -1,
+        "7": -7,
+        "14": -14,
+        "30": -30,
+        "90": -90,
+        "6m": -182,
+        "12m": -365,
+        "24m": -730,
+        "36m": -1095
+      },
+      "suggestedEnums": {
+        "Any": "any",
+        "1 day": "1",
+        "7 days": "7",
+        "14 days": "14",
+        "30 days": "30",
+        "90 days": "90",
+        "6 months": "6m",
+        "12 months": "12m",
+        "24 months": "24m",
+        "36 months": "36m"
+      },
+      "exposedPillEnabled": true
+    },
+    "isNewConstruction": {
+      "id": "isNewConstruction",
+      "shortId": "nc",
+      "labels": {
+        "default": "New Construction"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isTownhouse": {
+      "id": "isTownhouse",
+      "shortId": "tow",
+      "labels": {
+        "default": "Townhomes"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isLotLand": {
+      "id": "isLotLand",
+      "shortId": "land",
+      "labels": {
+        "default": "Lots/Land"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isBasementUnfinished": {
+      "id": "isBasementUnfinished",
+      "shortId": "basu",
+      "labels": {
+        "default": "Unfinished"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isOpenHousesOnly": {
+      "id": "isOpenHousesOnly",
+      "shortId": "open",
+      "labels": {
+        "default": "Must have open house",
+        "tracking": "Open House"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isBasementFinished": {
+      "id": "isBasementFinished",
+      "shortId": "basf",
+      "labels": {
+        "default": "Finished"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "dataSourceSelection": {
+      "id": "dataSourceSelection",
+      "shortId": "dsrc",
+      "labels": {
+        "default": "Data Source"
+      },
+      "type": "String",
+      "defaultValue": {
+        "value": "all"
+      }
+    },
+    "isPreMarketForeclosure": {
+      "id": "isPreMarketForeclosure",
+      "shortId": "pmf",
+      "labels": {
+        "default": "Foreclosed"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isForSaleByAgent": {
+      "id": "isForSaleByAgent",
+      "shortId": "fsba",
+      "labels": {
+        "default": "By Agent"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "parkingSpots": {
+      "id": "parkingSpots",
+      "shortId": "parks",
+      "type": "Range",
+      "labels": {
+        "default": "Parking spots"
+      },
+      "defaultValue": {
+        "min": null
+      },
+      "suggestedEnums": {
+        "Any": null,
+        "1+": 1,
+        "2+": 2,
+        "3+": 3,
+        "4+": 4
+      }
+    },
+    "isPreMarketPreForeclosure": {
+      "id": "isPreMarketPreForeclosure",
+      "shortId": "pf",
+      "labels": {
+        "default": "Pre-Foreclosures"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "hasGarage": {
+      "id": "hasGarage",
+      "shortId": "gar",
+      "labels": {
+        "default": "Must have garage",
+        "tracking": "Garage"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "hasPool": {
+      "id": "hasPool",
+      "shortId": "pool",
+      "labels": {
+        "default": "Must have pool",
+        "tracking": "Pool"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "onlyRentalSmallDogsAllowed": {
+      "id": "onlyRentalSmallDogsAllowed",
+      "shortId": "sdog",
+      "labels": {
+        "default": "Allows small dogs"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isAcceptingBackupOffersSelected": {
+      "id": "isAcceptingBackupOffersSelected",
+      "shortId": "abo",
+      "labels": {
+        "default": "Accepting Backup Offers"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "built": {
+      "id": "built",
+      "labels": {
+        "default": "Year Built",
+        "valueFormatter": {
+          "none": "Any",
+          "min": "{{min}}+",
+          "max": "<{{max}}",
+          "minMax": "{{min}}-{{max}}",
+          "identicalMinMax": "{{min}}",
+          "numberFormatter": "0",
+          "inputFormatter": "0"
+        }
+      },
+      "sortOrder": 6,
+      "type": "Range",
+      "defaultValue": {
+        "min": null,
+        "max": null
+      },
+      "exposedPillEnabled": true,
+      "ABTest": {
+        "SXP_VISUAL_AUDIT_2021": "CONTROL"
+      }
+    },
+    "onlyRentalLargeDogsAllowed": {
+      "id": "onlyRentalLargeDogsAllowed",
+      "shortId": "ldog",
+      "labels": {
+        "default": "Allows large dogs"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "lotSize": {
+      "id": "lotSize",
+      "shortId": "lot",
+      "labels": {
+        "default": "Lot Size",
+        "shortDescription": "...",
+        "longDescription": "...",
+        "pluralSubstitutes": {
+          "acre": "acres"
+        },
+        "valueFormatter": {
+          "none": "Any",
+          "min": "{{min}}+ {{unit}}",
+          "max": "<={{max}} {{unit}}",
+          "minMax": "{{min}}-{{max}} {{unit}}",
+          "identicalMinMax": "{{min}} {{unit}}",
+          "numberFormatter": "0,0[.][000]",
+          "inputFormatter": "0,0[.][000]"
+        }
+      },
+      "sortOrder": 5,
+      "type": "Range",
+      "subType": "RangeWithUnits",
+      "defaultValue": {
+        "min": null,
+        "max": null,
+        "units": "sqft"
+      },
+      "unitTypes": ["sqft", "acre"],
+      "suggestedEnums": [
+        {
+          "label": "1,000 sqft",
+          "value": 1000,
+          "units": "sqft"
+        },
+        {
+          "label": "2,000 sqft",
+          "value": 2000,
+          "units": "sqft"
+        },
+        {
+          "label": "3,000 sqft",
+          "value": 3000,
+          "units": "sqft"
+        },
+        {
+          "label": "4,000 sqft",
+          "value": 4000,
+          "units": "sqft"
+        },
+        {
+          "label": "5,000 sqft",
+          "value": 5000,
+          "units": "sqft"
+        },
+        {
+          "label": "7,500 sqft",
+          "value": 7500,
+          "units": "sqft"
+        },
+        {
+          "label": "1/4 acre/10,890 sqft",
+          "value": 10890,
+          "units": "sqft"
+        },
+        {
+          "label": "1/2 acre",
+          "value": 21780,
+          "units": "sqft"
+        },
+        {
+          "label": "1 acre",
+          "value": 43560,
+          "units": "sqft"
+        },
+        {
+          "label": "2 acres",
+          "value": 87120,
+          "units": "sqft"
+        },
+        {
+          "label": "5 acres",
+          "value": 217800,
+          "units": "sqft"
+        },
+        {
+          "label": "10 acres",
+          "value": 435600,
+          "units": "sqft"
+        },
+        {
+          "label": "20 acres",
+          "value": 871200,
+          "units": "sqft"
+        },
+        {
+          "label": "50 acres",
+          "value": 2178000,
+          "units": "sqft"
+        },
+        {
+          "label": "100 acres",
+          "value": 4356000,
+          "units": "sqft"
+        }
+      ],
+      "exposedPillEnabled": true,
+      "ABTest": {
+        "SXP_VISUAL_AUDIT_2021": "CONTROL"
+      }
+    },
+    "greatSchoolsRating": {
+      "id": "greatSchoolsRating",
+      "shortId": "schb",
+      "labels": {
+        "default": "GreatSchools Rating",
+        "valueFormatter": {
+          "none": "Any"
+        }
+      },
+      "type": "Range",
+      "defaultValue": {
+        "min": 1
+      },
+      "suggestedEnums": [
+        {
+          "label": "1+",
+          "value": 1
+        },
+        {
+          "label": "2+",
+          "value": 2
+        },
+        {
+          "label": "3+",
+          "value": 3
+        },
+        {
+          "label": "4+",
+          "value": 4
+        },
+        {
+          "label": "5+",
+          "value": 5
+        },
+        {
+          "label": "6+",
+          "value": 6
+        },
+        {
+          "label": "7+",
+          "value": 7
+        },
+        {
+          "label": "8+",
+          "value": 8
+        },
+        {
+          "label": "9+",
+          "value": 9
+        },
+        {
+          "label": "10",
+          "value": 10
+        }
+      ]
+    },
+    "includeUnratedSchools": {
+      "id": "includeUnratedSchools",
+      "shortId": "schu",
+      "labels": {
+        "default": "Include schools with no rating"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isRecentlySold": {
+      "id": "isRecentlySold",
+      "shortId": "rs",
+      "labels": {
+        "default": "Sold",
+        "long": "Recently Sold"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "isPendingListingsSelected": {
+      "id": "isPendingListingsSelected",
+      "shortId": "pnd",
+      "labels": {
+        "default": "Pending & Under Contract"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "onlyRentalHousingConnector": {
+      "id": "onlyRentalHousingConnector",
+      "shortId": "hc",
+      "labels": {
+        "default": "Accepts Housing Connector",
+        "tracking": "Housing Connector"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "onlyRentalFeaturedMultiFamilyBuilding": {
+      "id": "onlyRentalFeaturedMultiFamilyBuilding",
+      "shortId": "fmfb",
+      "labels": {
+        "default": "Apartment Community"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "baths": {
+      "id": "baths",
+      "labels": {
+        "default": "Bathrooms",
+        "valueFormatter": {
+          "none": "Any",
+          "min": "{{min}}+",
+          "max": "<{{max}}",
+          "minMax": "{{min}}-{{max}}",
+          "identicalMinMax": "{{min}}"
+        }
+      },
+      "sortOrder": 3,
+      "type": "Range",
+      "defaultValue": {
+        "min": null,
+        "max": null
+      },
+      "suggestedEnums": {
+        "Any": 0,
+        "1+": 1,
+        "1.5+": 1.5,
+        "2+": 2,
+        "3+": 3,
+        "4+": 4
+      },
+      "exposedPillEnabled": true
+    },
+    "isApartmentOrCondo": {
+      "id": "isApartmentOrCondo",
+      "shortId": "apco",
+      "labels": {
+        "default": "Apartments/Condos/Co-ops"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "includeHomesWithNoHoaData": {
+      "id": "includeHomesWithNoHoaData",
+      "shortId": "nohoa",
+      "labels": {
+        "default": "Include homes with incomplete HOA data",
+        "tracking": "HOA No Data"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isElementarySchool": {
+      "id": "isElementarySchool",
+      "shortId": "sche",
+      "labels": {
+        "default": "Elementary"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": true
+      }
+    },
+    "isParkView": {
+      "id": "isParkView",
+      "shortId": "parkv",
+      "labels": {
+        "default": "Park"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value": false
+      }
+    },
+    "enableSchools": {
+      "id": "enableSchools",
+      "shortId": "sch",
+      "labels": {
+        "default": "Schools"
+      },
+      "type": "Boolean",
+      "defaultValue": {
+        "value:": false
+      }
+    }
+  },
+  "defaultFilterState": {
+    "keywords": {
+      "value": ""
+    },
+    "isPublicSchool": {
+      "value": true
+    },
+    "isCityView": {
+      "value": false
+    },
+    "isWaterfront": {
+      "value": false
+    },
+    "isCondo": {
+      "value": true
+    },
+    "onlyRentalExcludeNullAvailabilityDates": {
+      "value": false
+    },
+    "isMountainView": {
+      "value": false
+    },
+    "singleStory": {
+      "value": false
+    },
+    "onlyRentalParkingAvailable": {
+      "value": false
+    },
+    "monthlyPayment": {
+      "min": null,
+      "max": null
+    },
+    "price": {
+      "min": null,
+      "max": null
+    },
+    "onlyPriceReduction": {
+      "value": false
+    },
+    "onlyRentalAcceptsApplications": {
+      "value": false
+    },
+    "SEOTypedIdField": {
+      "value": null,
+      "field": null,
+      "id": null
+    },
+    "sqft": {
+      "min": null,
+      "max": null
+    },
+    "isZillowOwnedOnly": {
+      "value": false
+    },
+    "isForRent": {
+      "value": false
+    },
+    "onlyRentalRequestedAvailabilityDate": {
+      "value": ""
+    },
+    "isForSaleByOwner": {
+      "value": true
+    },
+    "hasAirConditioning": {
+      "value": false
+    },
+    "isApartment": {
+      "value": true
+    },
+    "sortSelection": {
+      "value": "priorityscore"
+    },
+    "isMiddleSchool": {
+      "value": true
+    },
+    "isWaterView": {
+      "value": false
+    },
+    "isPrivateSchool": {
+      "value": true
+    },
+    "onlyRentalIncomeRestricted": {
+      "value": false
+    },
+    "isManufactured": {
+      "value": true
+    },
+    "onlyRentalInUnitLaundry": {
+      "value": false
+    },
+    "isComingSoon": {
+      "value": true
+    },
+    "isSingleFamily": {
+      "value": true
+    },
+    "isForSaleForeclosure": {
+      "value": true
+    },
+    "isHighSchool": {
+      "value": true
+    },
+    "onlyWithPhotos": {
+      "value": false
+    },
+    "hoa": {
+      "min": null,
+      "max": null
+    },
+    "beds": {
+      "min": null,
+      "max": null
+    },
+    "isAllHomes": {
+      "value": false
+    },
+    "ageRestricted55Plus": {
+      "value": "i"
+    },
+    "onlyRentalCatsAllowed": {
+      "value": false
+    },
+    "includeSchoolsSelection": {
+      "highSchool": null,
+      "middleSchool": null,
+      "elementarySchool": null
+    },
+    "isCharterSchool": {
+      "value": true
+    },
+    "onlyRentalPetsAllowed": {
+      "value": false
+    },
+    "isAuction": {
+      "value": true
+    },
+    "is3dHome": {
+      "value": false
+    },
+    "isMultiFamily": {
+      "value": true
+    },
+    "doz": {
+      "value": "any"
+    },
+    "isNewConstruction": {
+      "value": true
+    },
+    "isTownhouse": {
+      "value": true
+    },
+    "isLotLand": {
+      "value": true
+    },
+    "isBasementUnfinished": {
+      "value": false
+    },
+    "isOpenHousesOnly": {
+      "value": false
+    },
+    "isBasementFinished": {
+      "value": false
+    },
+    "dataSourceSelection": {
+      "value": "all"
+    },
+    "isPreMarketForeclosure": {
+      "value": false
+    },
+    "isForSaleByAgent": {
+      "value": true
+    },
+    "parkingSpots": {
+      "min": null
+    },
+    "isPreMarketPreForeclosure": {
+      "value": false
+    },
+    "hasGarage": {
+      "value": false
+    },
+    "hasPool": {
+      "value": false
+    },
+    "onlyRentalSmallDogsAllowed": {
+      "value": false
+    },
+    "isAcceptingBackupOffersSelected": {
+      "value": false
+    },
+    "built": {
+      "min": null,
+      "max": null
+    },
+    "onlyRentalLargeDogsAllowed": {
+      "value": false
+    },
+    "lotSize": {
+      "min": null,
+      "max": null,
+      "units": "sqft"
+    },
+    "greatSchoolsRating": {
+      "min": 1
+    },
+    "includeUnratedSchools": {
+      "value": true
+    },
+    "isRecentlySold": {
+      "value": false
+    },
+    "isPendingListingsSelected": {
+      "value": false
+    },
+    "onlyRentalHousingConnector": {
+      "value": false
+    },
+    "onlyRentalFeaturedMultiFamilyBuilding": {
+      "value": false
+    },
+    "baths": {
+      "min": null,
+      "max": null
+    },
+    "isApartmentOrCondo": {
+      "value": true
+    },
+    "includeHomesWithNoHoaData": {
+      "value": true
+    },
+    "isElementarySchool": {
+      "value": true
+    },
+    "isParkView": {
+      "value": false
+    },
+    "enableSchools": {
+      "value:": false
+    }
+  },
+  "defaultQueryState": {
+    "filterState": {},
+    "dataSource": "core",
+    "isMapVisible": false,
+    "isListVisible": true,
+    "mapBounds": {
+      "west": 0,
+      "south": 0,
+      "east": 0,
+      "north": 0,
+      "zoom": 10
+    },
+    "mapZoom": 10,
+    "pagination": {
+      "currentPage": 1
+    },
+    "usersSearchTerm": null,
+    "regionSelection": null,
+    "schoolId": null,
+    "districtId": null,
+    "customRegionId": null,
+    "savedSearchEnrollmentId": null,
+    "nearMe": null,
+    "category": "cat1",
+    "debugRequest": {}
+  },
+  "searchPageConstants": {
+    "monthlyInterestRate": 0.004470833,
+    "isMobile": false,
+    "isTablet": false,
+    "searchMapGoogleAPIKey": "AIzaSyA1uIgJLlFocMlwcu8b3wKPKkdT2mWV3AU",
+    "mapComboUrl": "https://www.zillowstatic.com",
+    "debugEnabled": false,
+    "keystoneTargetUrl": "https://e.zg-api.com/event",
+    "categoryOneTitle": "Agent listings",
+    "categoryTwoTitle": "Other listings",
+    "gtm": {
+      "gtmInitialData": [
+        {
+          "isTablet": false,
+          "isPhone": false,
+          "isMobile": false,
+          "isMobileApp": false
+        },
+        {
+          "event": "SearchPageView",
+          "gaCustomDimensions": {
+            "dimension3": "",
+            "dimension4": "",
+            "dimension5": "",
+            "dimension6": "",
+            "dimension18": "",
+            "dimension23": "ForSale",
+            "dimension66": "Search"
+          }
+        }
+      ],
+      "gtmContainerID": "GTM-P6HT97",
+      "isGtmEnabled": true
+    }
+  },
+  "user": {
+    "isLoggedIn": false,
+    "hasHousingConnectorPermission": false,
+    "savedSearchCount": 0,
+    "savedHomesCount": 0,
+    "personalizedSearchGaDataTag": null,
+    "personalizedSearchTraceID": "62a39266defc42ab5ca7aed57356ad42",
+    "searchPageRenderedCount": 1,
+    "guid": "c3403aea-7b23-4a4f-9795-251f1e5bd980",
+    "zuid": "",
+    "isBot": false,
+    "userSpecializedSEORegion": false
+  },
+  "seoFooter": {
+    "regionName": "",
+    "rentalBuildingSearch": false,
+    "condoBuildingsSearch": false,
+    "rentalApartmentSearch": false,
+    "studioApartmentsSearch": false,
+    "furnishedApartmentsSearch": false,
+    "cheapApartmentsSearch": false,
+    "schoolLayerEnabled": true,
+    "showSimilarApartmentsSection": false,
+    "showNearMeRentalFooterLinks": false,
+    "showNearMeForSaleFooterLinks": false,
+    "isApartmentRental": false,
+    "baseUrl": "https://www.zillow.com",
+    "breadcrumbsCategory": "For Sale",
+    "breadcrumbs": [],
+    "regionNamePlusStateAbbv": "",
+    "footerDetails": {
+      "regionTypeIsValid": false,
+      "targetedRegionName": "",
+      "regionTypeIsState": false,
+      "fullState": "",
+      "regionTypeIsNeighborhood": false,
+      "regionTypeIsZipcode": false,
+      "targetedRegionHomeValuesLink": "/home-values/",
+      "targetedRegionTypeIsCity": false,
+      "isListSearchResults": true,
+      "isApartmentRental": false,
+      "isHousesRental": false,
+      "browseURL": null,
+      "browseDisplayName": null,
+      "isCanadian": false,
+      "regionForSaleCount": 0,
+      "regionTypeIsCity": false,
+      "regionNamePlusStateAbbv": "",
+      "singleFamilyForSaleSearchURL": "/homes/for_sale/house_type/",
+      "regionName": ""
+    },
+    "searchBreadcrumbData": {
+      "isSearchBreadcrumbData": true,
+      "regionName": "",
+      "isRentalApartmentOrHouses": false,
+      "isCanadian": false,
+      "currentRegion": {},
+      "isValidZhvi": false,
+      "showFooterMoreLinks": true,
+      "breadcrumbListDetails": {
+        "boroughs": null,
+        "cities": null,
+        "neighborhoods": null,
+        "zipcodes": null,
+        "universities": null
+      },
+      "showAttributeLinks": null
+    },
+    "linkSections": null
+  },
+  "mapState": {
+    "customRegionPolygonWkt": null,
+    "schoolPolygonWkt": null,
+    "isCurrentLocationSearch": false,
+    "userPosition": {
+      "lat": null,
+      "lon": null
+    },
+    "regionInfo": []
+  },
+  "searchPageSeoObject": {
+    "baseUrl": "/homes/for_sale/house_type/",
+    "windowTitle": "Single Family Homes For Sale - 3 Homes | Zillow"
+  },
+  "abTrials": {
+    "SXP_HDP_CONTINGENT_V2": "ON",
+    "SXP_REGION_AUTOCOMPLETE_SOURCE": "TRULIA",
+    "RE_Move_In_Date_Filter": "TEST",
+    "TR_VIRTUALIZED_LIST_CARDS": "ON",
+    "SXP_SENTRY": "ON",
+    "SEOTEST__SXP_LIST_ONLY_SRP": "CONTROL",
+    "SXP_REACT_FOOTER_DESKTOP": "CONTROL",
+    "ACQ_Search_Filters_Upsell": "CONTROL",
+    "VARIANTS_BDP_768_PLUS": "CONTROL",
+    "SXP_FLOATING_ACTION_BAR": "ON",
+    "SET_CTA_COUNTLESS": "CONTROL",
+    "SXP_LISTING_SUBTYPE": "CONTROL",
+    "SXP_Search_Refinement_Filters": "CONTROL",
+    "SXP_PREXIT_CLAIMS_INFO": "ENABLED",
+    "SXP_NONMLS_OFF": "CONTROL",
+    "SXP_PARTIAL_PAGE_LOAD_REFACTOR": "CONTROL",
+    "SXP_NAV_AD_LOADING": "CONTROL",
+    "ACT_FILTER_ON_LAND": "CONTROL",
+    "SXP_PHOTO_CAROUSEL": "CONTROL",
+    "SEO__SXP_REMOVE_ANCHOR_TEXT": "CONTROL",
+    "DXP_NEW_MAP_DOTS_WEB": "CONTROL",
+    "SXP_ACT_REMOVE_SEARCHBOX_GLEAM": "NO_GLEAM",
+    "SXP_Exclude_Referer": "TEST",
+    "SXP_PAGE_LOAD": "FASTER",
+    "RE_Rentals_Badging_v1": "CONTROL",
+    "SXP_55PLUS_FILTER": "ON_WITH_BADGE",
+    "SXP_REACT_GPT": "REMOVED",
+    "SXP_QU_PHASE_2": "ON",
+    "SXP_AD_TARGET_REFACTOR": "CONTROL",
+    "RE_Search_Refinement_Filters": "CONTROL",
+    "MIGHTY_MONTH_2022_HOLDOUT": "MIGHTY_MONTH_ON",
+    "SXP_STATIC_MAP": "ON_PLUS_XDP_LAZYLOAD",
+    "SXP_REDUCED_SERVER_SIDE_RENDER": "CONTROL",
+    "SXP_DelayJS": "AFTER_LOAD",
+    "ACQ_Banner_Suppression": "CONTROL",
+    "GS_RATING_CLEANUP": "CONTROL",
+    "SXP_DEFERRED_RENDERER": "CONTROL",
+    "SXP_STREETVIEW_REQUEST_TYPE": "CONTROL",
+    "RE_RentalsHomesForYouSort": "CONTROL",
+    "SP_FOR_RENT_PAGE": "CONTROL",
+    "SEOTEST__SXP_REMOVE_WHY_ZILLOW": "REMOVE_WHY_ZILLOW",
+    "DXP_RTB_LINKING": "ON",
+    "SXP_Rentals_Apartment_Community_Filter": "TEST",
+    "SXP_WOW_LIST_CARD": "CONTROL",
+    "SXP_KF_FILTERS_AC": "ON",
+    "SXP_SDS_INTEGRATION": "CONTROL",
+    "SXP_MOBILE_MAP_PRIORITY": "CONTROL",
+    "SXP_MAP_DOT_STYLE": "CONTROL",
+    "SXP_Pers_SimilarResults": "PERS_RESULTS",
+    "RE_RentalHomeDetailsService": "CONTROL",
+    "ACQ_SigninSRP_Module": "Variant_Module_A",
+    "DXP_CONST_PROPCARD_MAPVIEW": "CONTROL",
+    "SXP_USER_OPTIMIZED": "ENABLED",
+    "SXP_FLYBAR_PSL_ZGSEARCH": "ON",
+    "ADS_Tagless": "Casale_On",
+    "SEOTEST__NC_H1": "ALTERNATE",
+    "SXP_FLYBAR_REGION_API": "CONTROL",
+    "RMX_3RD_PARTY_P1": "ON",
+    "RUM_VIA_PRE_ENDPOINT": "TREATMENT_OFF",
+    "DXP_CONST_PROPCARD_LISTVIEW": "CONTROL",
+    "SXP_EVENT_MARKUP": "CONTROL",
+    "SXP_SEARCH_DISPATCHER_SERVICE": "CONTROL",
+    "SXP_DISPLAY_AD_LOADING": "CONTROL",
+    "SP_ZO_HDP_PAGE": "CONTROL",
+    "ADT_TOP_SLOT_SRP": "ONSITE_MESSAGING",
+    "VL_BDP_SSR_QUERY": "CONTROL_CACHED",
+    "VL_BDP_NEW_TAB": "CONTROL",
+    "SXP_PREXIT_CLAIMS_CHECK": "ENABLED",
+    "SEOTEST__SXP_SEO_TEST": "CONTROL",
+    "SXP_OPEN_HOUSE_FLEX": "OPEN_HOUSE_BOOSTED",
+    "SP_FOR_SALE_PAGE": "CONTROL",
+    "SXP_PAGINATION": "LEGACY_PAGINATION",
+    "SXP_KF_FILTERS_V2": "ON",
+    "SXP_MLS_NONMLS_FILTER": "CONTROL",
+    "RE_GuidedSearchFiltersPOC": "CONTROL",
+    "SXP_3DHOME_FILTER": "ON",
+    "SP_BUILDING_PAGE": "CONTROL",
+    "SXP_QU_MIGRATION": "ON",
+    "ACQ_MOBILE_UPSELL_SXP": "CONTROL",
+    "SXP_LIST_ONLY_SRP": "CONTROL",
+    "SXP_HDP_Load_Order": "OPTIMIZED",
+    "RE_JanusBrainSort": "TEST_ALL_STATES",
+    "SEOTEST__RE_ForRentForSaleSRPBreadcrumbs": "CONTROL",
+    "SXP_MAKE_ME_MOVE": "REMOVED",
+    "SHO_GA_ResultsTotalEvent": "ON",
+    "DXP_MAP_DOTS_WEB": "CONTROL",
+    "SXP_MULTIREGION_SEARCH": "CONTROL",
+    "DXP_HERO_SHORTENING": "ON",
+    "SXP_VISUAL_AUDIT_2021": "CONTROL",
+    "SXP_HDP_BLUE_TO_RED": "ON",
+    "HDP_DESKTOP_LAYOUT_TOPNAV": "CONTROL",
+    "SXP_HEADER_TAG_WRAPPER": "ON",
+    "DXP_HOMEPAGE_OMP": "ON",
+    "SXP_Multifamily_Filter": "MULTIFAMILY_SEPARATE",
+    "SXP_FOOTER": "RESPONSIVE_REACT",
+    "SP_PAID_BUILDER_PAGE": "CONTROL",
+    "SP_OFF_MARKET_PAGE": "CONTROL",
+    "SXP_KINGFISHER_FILTERS": "P1_PHASE_1",
+    "RE_SECOND_BOOST": "CONTROL",
+    "ADT_PROGRESSIVE_MESSAGE": "CONTROL",
+    "SXP_Combined_Filter_Apartments_Condos": "TEST",
+    "DXP_HOME_RECS": "CONTROL",
+    "SEOTEST__SXP_REACT_FOOTER_DESKTOP": "CONTROL",
+    "SXP_3DTOUR_MAP_DOT": "ON"
+  },
+  "cat1": {
+    "searchResults": {
+      "listResults": [
+        {
+          "zpid": "331363227",
+          "id": "331363227",
+          "providerListingId": null,
+          "imgSrc": "https://photos.zillowstatic.com/fp/021ed4a392a8995420a9017cb59088c3-p_e.jpg",
+          "hasImage": true,
+          "detailUrl": "https://www.zillow.com/homedetails/6105-County-Road-357-Navasota-TX-77868/331363227_zpid/",
+          "statusType": "FOR_SALE",
+          "statusText": "House for sale",
+          "countryCurrency": "$",
+          "price": "$550,000",
+          "unformattedPrice": 550000,
+          "address": "6105 County Road 357, Navasota, TX 77868",
+          "addressStreet": "6105 County Road 357",
+          "addressCity": "Navasota",
+          "addressState": "TX",
+          "addressZipcode": "77868",
+          "isUndisclosedAddress": false,
+          "beds": null,
+          "baths": 2.0,
+          "area": null,
+          "latLong": {
+            "latitude": 30.337862,
+            "longitude": -95.90655
+          },
+          "isZillowOwned": false,
+          "variableData": {
+            "type": "DAYS_ON",
+            "text": "212 days on Zillow"
+          },
+          "badgeInfo": null,
+          "hdpData": {
+            "homeInfo": {
+              "zpid": 331363227,
+              "streetAddress": "6105 County Road 357",
+              "zipcode": "77868",
+              "city": "Navasota",
+              "state": "TX",
+              "latitude": 30.337862,
+              "longitude": -95.90655,
+              "price": 550000.0,
+              "bathrooms": 2.0,
+              "homeType": "SINGLE_FAMILY",
+              "homeStatus": "FOR_SALE",
+              "daysOnZillow": -1,
+              "isFeatured": false,
+              "shouldHighlight": false,
+              "listing_sub_type": {
+                "is_FSBA": true
+              },
+              "isUnmappable": false,
+              "isPreforeclosureAuction": false,
+              "homeStatusForHDP": "FOR_SALE",
+              "priceForHDP": 550000.0,
+              "isNonOwnerOccupied": true,
+              "isPremierBuilder": false,
+              "isZillowOwned": false,
+              "currency": "USD",
+              "country": "USA",
+              "taxAssessedValue": 272170.0,
+              "lotAreaValue": 10.0,
+              "lotAreaUnit": "acres"
+            }
+          },
+          "isSaved": false,
+          "isUserClaimingOwner": false,
+          "isUserConfirmedClaim": false,
+          "pgapt": "ForSale",
+          "sgapt": "For Sale (Broker)",
+          "zestimate": null,
+          "shouldShowZestimateAsPrice": false,
+          "has3DModel": false,
+          "hasVideo": false,
+          "isHomeRec": false,
+          "brokerName": "Real Estate Unlimited",
+          "hasAdditionalAttributions": true,
+          "isFeaturedListing": false,
+          "availabilityDate": null,
+          "list": true,
+          "relaxed": false
+        },
+        {
+          "zpid": "331363966",
+          "id": "331363966",
+          "providerListingId": null,
+          "imgSrc": "https://photos.zillowstatic.com/fp/4dd04eaee3612143d3aae26a0a3dcd86-p_e.jpg",
+          "hasImage": true,
+          "detailUrl": "https://www.zillow.com/homedetails/5222-County-Road-306-Navasota-TX-77868/331363966_zpid/",
+          "statusType": "FOR_SALE",
+          "statusText": "House for sale",
+          "countryCurrency": "$",
+          "price": "$1,250,000",
+          "unformattedPrice": 1250000,
+          "address": "5222 County Road 306, Navasota, TX 77868",
+          "addressStreet": "5222 County Road 306",
+          "addressCity": "Navasota",
+          "addressState": "TX",
+          "addressZipcode": "77868",
+          "isUndisclosedAddress": false,
+          "beds": null,
+          "baths": 1.0,
+          "area": null,
+          "latLong": {
+            "latitude": 30.340769,
+            "longitude": -95.923485
+          },
+          "isZillowOwned": false,
+          "variableData": {
+            "type": "DAYS_ON",
+            "text": "179 days on Zillow"
+          },
+          "badgeInfo": null,
+          "hdpData": {
+            "homeInfo": {
+              "zpid": 331363966,
+              "streetAddress": "5222 County Road 306",
+              "zipcode": "77868",
+              "city": "Navasota",
+              "state": "TX",
+              "latitude": 30.340769,
+              "longitude": -95.923485,
+              "price": 1250000.0,
+              "bathrooms": 1.0,
+              "homeType": "SINGLE_FAMILY",
+              "homeStatus": "FOR_SALE",
+              "daysOnZillow": -1,
+              "isFeatured": false,
+              "shouldHighlight": false,
+              "zestimate": 1196600,
+              "listing_sub_type": {
+                "is_FSBA": true
+              },
+              "isUnmappable": false,
+              "isPreforeclosureAuction": false,
+              "homeStatusForHDP": "FOR_SALE",
+              "priceForHDP": 1250000.0,
+              "isNonOwnerOccupied": true,
+              "isPremierBuilder": false,
+              "isZillowOwned": false,
+              "currency": "USD",
+              "country": "USA",
+              "taxAssessedValue": 391210.0,
+              "lotAreaValue": 33.59,
+              "lotAreaUnit": "acres"
+            }
+          },
+          "isSaved": false,
+          "isUserClaimingOwner": false,
+          "isUserConfirmedClaim": false,
+          "pgapt": "ForSale",
+          "sgapt": "For Sale (Broker)",
+          "zestimate": 1196600,
+          "shouldShowZestimateAsPrice": false,
+          "has3DModel": false,
+          "hasVideo": false,
+          "isHomeRec": false,
+          "brokerName": "Jacobs Properties",
+          "hasAdditionalAttributions": true,
+          "isFeaturedListing": false,
+          "availabilityDate": null,
+          "list": true,
+          "relaxed": false
+        },
+        {
+          "zpid": "304860054",
+          "id": "304860054",
+          "providerListingId": null,
+          "imgSrc": "https://photos.zillowstatic.com/fp/3ced7db01b97b8707a3715d629dc5465-p_e.jpg",
+          "hasImage": true,
+          "detailUrl": "https://www.zillow.com/homedetails/6113-County-Road-344-Navasota-TX-77868/304860054_zpid/",
+          "statusType": "FOR_SALE",
+          "statusText": "House for sale",
+          "countryCurrency": "$",
+          "price": "$787,500",
+          "unformattedPrice": 787500,
+          "address": "6113 County Road 344, Navasota, TX 77868",
+          "addressStreet": "6113 County Road 344",
+          "addressCity": "Navasota",
+          "addressState": "TX",
+          "addressZipcode": "77868",
+          "isUndisclosedAddress": false,
+          "beds": null,
+          "baths": 0.0,
+          "area": null,
+          "latLong": {
+            "latitude": 30.320108,
+            "longitude": -95.90624
+          },
+          "isZillowOwned": false,
+          "variableData": {
+            "type": "PRICE_REDUCTION",
+            "text": "$112,500 (May 17)"
+          },
+          "badgeInfo": null,
+          "hdpData": {
+            "homeInfo": {
+              "zpid": 304860054,
+              "streetAddress": "6113 County Road 344",
+              "zipcode": "77868",
+              "city": "Navasota",
+              "state": "TX",
+              "latitude": 30.320108,
+              "longitude": -95.90624,
+              "price": 787500.0,
+              "datePriceChanged": 1652770800000,
+              "bathrooms": 0.0,
+              "homeType": "SINGLE_FAMILY",
+              "homeStatus": "FOR_SALE",
+              "daysOnZillow": -1,
+              "isFeatured": false,
+              "shouldHighlight": false,
+              "zestimate": 868100,
+              "rentZestimate": 1895,
+              "listing_sub_type": {
+                "is_FSBA": true
+              },
+              "priceReduction": "$112,500 (May 17)",
+              "isUnmappable": false,
+              "isPreforeclosureAuction": false,
+              "homeStatusForHDP": "FOR_SALE",
+              "priceForHDP": 787500.0,
+              "priceChange": -112500,
+              "isNonOwnerOccupied": true,
+              "isPremierBuilder": false,
+              "isZillowOwned": false,
+              "currency": "USD",
+              "country": "USA",
+              "taxAssessedValue": 372530.0,
+              "lotAreaValue": 22.468,
+              "lotAreaUnit": "acres"
+            }
+          },
+          "isSaved": false,
+          "isUserClaimingOwner": false,
+          "isUserConfirmedClaim": false,
+          "pgapt": "ForSale",
+          "sgapt": "For Sale (Broker)",
+          "zestimate": 868100,
+          "shouldShowZestimateAsPrice": false,
+          "has3DModel": false,
+          "hasVideo": false,
+          "isHomeRec": false,
+          "brokerName": "My Castle Realty",
+          "hasAdditionalAttributions": true,
+          "isFeaturedListing": false,
+          "availabilityDate": null,
+          "list": true,
+          "relaxed": false
+        }
+      ],
+      "resultsHash": "e1e2bb1",
+      "homeRecCount": 0,
+      "showForYouCount": 0,
+      "relaxedResults": [
+        {
+          "zpid": "127200895",
+          "id": "127200895",
+          "providerListingId": null,
+          "imgSrc": "https://photos.zillowstatic.com/fp/7863631e14fdb4da10360b2549603e2a-p_e.jpg",
+          "hasImage": true,
+          "detailUrl": "https://www.zillow.com/homedetails/5719-N-Hill-Rd-Navasota-TX-77868/127200895_zpid/",
+          "statusType": "FOR_SALE",
+          "statusText": "House for sale",
+          "countryCurrency": "$",
+          "price": "$399,750",
+          "unformattedPrice": 399750,
+          "address": "5719 N Hill Rd, Navasota, TX 77868",
+          "addressStreet": "5719 N Hill Rd",
+          "addressCity": "Navasota",
+          "addressState": "TX",
+          "addressZipcode": "77868",
+          "isUndisclosedAddress": false,
+          "beds": 3,
+          "baths": 2.0,
+          "area": 2572,
+          "latLong": {
+            "latitude": 30.293531,
+            "longitude": -95.91636
+          },
+          "isZillowOwned": false,
+          "variableData": {
+            "type": "PRICE_REDUCTION",
+            "text": "$49,250 (May 29)"
+          },
+          "badgeInfo": null,
+          "hdpData": {
+            "homeInfo": {
+              "zpid": 127200895,
+              "streetAddress": "5719 N Hill Rd",
+              "zipcode": "77868",
+              "city": "Navasota",
+              "state": "TX",
+              "latitude": 30.293531,
+              "longitude": -95.91636,
+              "price": 399750.0,
+              "datePriceChanged": 1653807600000,
+              "bathrooms": 2.0,
+              "bedrooms": 3.0,
+              "livingArea": 2572.0,
+              "homeType": "SINGLE_FAMILY",
+              "homeStatus": "FOR_SALE",
+              "daysOnZillow": -1,
+              "isFeatured": false,
+              "shouldHighlight": false,
+              "zestimate": 400600,
+              "rentZestimate": 2156,
+              "listing_sub_type": {
+                "is_FSBA": true
+              },
+              "priceReduction": "$49,250 (May 29)",
+              "isUnmappable": false,
+              "isPreforeclosureAuction": false,
+              "homeStatusForHDP": "FOR_SALE",
+              "priceForHDP": 399750.0,
+              "priceChange": -49250,
+              "isNonOwnerOccupied": true,
+              "isPremierBuilder": false,
+              "isZillowOwned": false,
+              "currency": "USD",
+              "country": "USA",
+              "taxAssessedValue": 287510.0,
+              "lotAreaValue": 1.0,
+              "lotAreaUnit": "acres"
+            }
+          },
+          "isSaved": false,
+          "isUserClaimingOwner": false,
+          "isUserConfirmedClaim": false,
+          "pgapt": "ForSale",
+          "sgapt": "For Sale (Broker)",
+          "zestimate": 400600,
+          "shouldShowZestimateAsPrice": false,
+          "has3DModel": false,
+          "hasVideo": false,
+          "isHomeRec": false,
+          "brokerName": "Keller Williams Realty B/V",
+          "hasAdditionalAttributions": true,
+          "isFeaturedListing": false,
+          "availabilityDate": null,
+          "relaxed": true,
+          "ma": false
+        },
+        {
+          "zpid": "2067659749",
+          "id": "2067659749",
+          "providerListingId": null,
+          "imgSrc": "https://photos.zillowstatic.com/fp/820cd0229777e939f2e9539eef977ffd-p_e.jpg",
+          "hasImage": true,
+          "detailUrl": "https://www.zillow.com/homedetails/9262-County-Road-311-Plantersville-TX-77363/2067659749_zpid/",
+          "statusType": "FOR_SALE",
+          "statusText": "Foreclosure",
+          "countryCurrency": "$",
+          "price": "$569,900",
+          "unformattedPrice": 569900,
+          "address": "9262 County Road 311, Plantersville, TX 77363",
+          "addressStreet": "9262 County Road 311",
+          "addressCity": "Plantersville",
+          "addressState": "TX",
+          "addressZipcode": "77363",
+          "isUndisclosedAddress": false,
+          "beds": 3,
+          "baths": 3.0,
+          "area": 2150,
+          "latLong": {
+            "latitude": 30.356354,
+            "longitude": -95.89084
+          },
+          "isZillowOwned": false,
+          "variableData": {
+            "type": "DAYS_ON",
+            "text": "14 days on Zillow"
+          },
+          "badgeInfo": null,
+          "hdpData": {
+            "homeInfo": {
+              "zpid": 2067659749,
+              "streetAddress": "9262 County Road 311",
+              "zipcode": "77363",
+              "city": "Plantersville",
+              "state": "TX",
+              "latitude": 30.356354,
+              "longitude": -95.89084,
+              "price": 569900.0,
+              "bathrooms": 3.0,
+              "bedrooms": 3.0,
+              "livingArea": 2150.0,
+              "homeType": "SINGLE_FAMILY",
+              "homeStatus": "FOR_SALE",
+              "daysOnZillow": -1,
+              "isFeatured": false,
+              "shouldHighlight": false,
+              "zestimate": 614200,
+              "listing_sub_type": {
+                "is_bankOwned": true
+              },
+              "isUnmappable": false,
+              "isPreforeclosureAuction": false,
+              "homeStatusForHDP": "FOR_SALE",
+              "priceForHDP": 569900.0,
+              "isNonOwnerOccupied": true,
+              "isPremierBuilder": false,
+              "isZillowOwned": false,
+              "currency": "USD",
+              "country": "USA",
+              "lotAreaValue": 13.495,
+              "lotAreaUnit": "acres"
+            }
+          },
+          "isSaved": false,
+          "isUserClaimingOwner": false,
+          "isUserConfirmedClaim": false,
+          "pgapt": "ForSale",
+          "sgapt": "Foreclosure",
+          "zestimate": 614200,
+          "shouldShowZestimateAsPrice": false,
+          "has3DModel": false,
+          "hasVideo": false,
+          "isHomeRec": false,
+          "brokerName": "God's Country Realty, Inc.",
+          "hasAdditionalAttributions": true,
+          "isFeaturedListing": false,
+          "availabilityDate": null,
+          "relaxed": true,
+          "ma": false
+        },
+        {
+          "zpid": "235126849",
+          "id": "235126849",
+          "providerListingId": null,
+          "imgSrc": "https://photos.zillowstatic.com/fp/0f802d558fa6c7b15ef5456400cf25db-p_e.jpg",
+          "hasImage": true,
+          "detailUrl": "https://www.zillow.com/homedetails/14357-S-Hill-Rd-Navasota-TX-77868/235126849_zpid/",
+          "statusType": "FOR_SALE",
+          "statusText": "House for sale",
+          "countryCurrency": "$",
+          "price": "$235,000",
+          "unformattedPrice": 235000,
+          "address": "14357 S Hill Rd, Navasota, TX 77868",
+          "addressStreet": "14357 S Hill Rd",
+          "addressCity": "Navasota",
+          "addressState": "TX",
+          "addressZipcode": "77868",
+          "isUndisclosedAddress": false,
+          "beds": 1,
+          "baths": 1.0,
+          "area": 512,
+          "latLong": {
+            "latitude": 30.291595,
+            "longitude": -95.9187
+          },
+          "isZillowOwned": false,
+          "variableData": {
+            "type": "DAYS_ON",
+            "text": "52 days on Zillow"
+          },
+          "badgeInfo": null,
+          "hdpData": {
+            "homeInfo": {
+              "zpid": 235126849,
+              "streetAddress": "14357 S Hill Rd",
+              "zipcode": "77868",
+              "city": "Navasota",
+              "state": "TX",
+              "latitude": 30.291595,
+              "longitude": -95.9187,
+              "price": 235000.0,
+              "bathrooms": 1.0,
+              "bedrooms": 1.0,
+              "livingArea": 512.0,
+              "homeType": "SINGLE_FAMILY",
+              "homeStatus": "FOR_SALE",
+              "daysOnZillow": -1,
+              "isFeatured": false,
+              "shouldHighlight": false,
+              "zestimate": 234900,
+              "rentZestimate": 1194,
+              "listing_sub_type": {
+                "is_FSBA": true
+              },
+              "isUnmappable": false,
+              "isPreforeclosureAuction": false,
+              "homeStatusForHDP": "FOR_SALE",
+              "priceForHDP": 235000.0,
+              "isNonOwnerOccupied": true,
+              "isPremierBuilder": false,
+              "isZillowOwned": false,
+              "currency": "USD",
+              "country": "USA",
+              "taxAssessedValue": 90600.0,
+              "lotAreaValue": 2.04,
+              "lotAreaUnit": "acres"
+            }
+          },
+          "isSaved": false,
+          "isUserClaimingOwner": false,
+          "isUserConfirmedClaim": false,
+          "pgapt": "ForSale",
+          "sgapt": "For Sale (Broker)",
+          "zestimate": 234900,
+          "shouldShowZestimateAsPrice": false,
+          "has3DModel": false,
+          "hasVideo": false,
+          "isHomeRec": false,
+          "brokerName": "LaRae Whorley Realty Group",
+          "hasAdditionalAttributions": true,
+          "isFeaturedListing": false,
+          "availabilityDate": null,
+          "relaxed": true,
+          "ma": false
+        },
+        {
+          "zpid": "2099666779",
+          "id": "2099666779",
+          "providerListingId": null,
+          "imgSrc": "https://photos.zillowstatic.com/fp/02c48ea6918f8df28bd09a86fb2bc3c6-p_e.jpg",
+          "hasImage": true,
+          "detailUrl": "https://www.zillow.com/homedetails/7450-Back-Forty-Ranch-Rd-Plantersville-TX-77363/2099666779_zpid/",
+          "statusType": "FOR_SALE",
+          "statusText": "House for sale",
+          "countryCurrency": "$",
+          "price": "$630,000",
+          "unformattedPrice": 630000,
+          "address": "7450 Back Forty Ranch Rd, Plantersville, TX 77363",
+          "addressStreet": "7450 Back Forty Ranch Rd",
+          "addressCity": "Plantersville",
+          "addressState": "TX",
+          "addressZipcode": "77363",
+          "isUndisclosedAddress": false,
+          "beds": 0,
+          "baths": 0.0,
+          "area": null,
+          "latLong": {},
+          "isZillowOwned": false,
+          "variableData": {
+            "type": "DAYS_ON",
+            "text": "15 days on Zillow"
+          },
+          "badgeInfo": null,
+          "hdpData": {
+            "homeInfo": {
+              "zpid": 2099666779,
+              "streetAddress": "7450 Back Forty Ranch Rd",
+              "zipcode": "77363",
+              "city": "Plantersville",
+              "state": "TX",
+              "price": 630000.0,
+              "bathrooms": 0.0,
+              "bedrooms": 0.0,
+              "homeType": "SINGLE_FAMILY",
+              "homeStatus": "FOR_SALE",
+              "daysOnZillow": -1,
+              "isFeatured": false,
+              "shouldHighlight": false,
+              "zestimate": 609400,
+              "rentZestimate": 1498,
+              "listing_sub_type": {
+                "is_FSBA": true
+              },
+              "isUnmappable": false,
+              "isPreforeclosureAuction": false,
+              "homeStatusForHDP": "FOR_SALE",
+              "priceForHDP": 630000.0,
+              "isNonOwnerOccupied": true,
+              "isPremierBuilder": false,
+              "isZillowOwned": false,
+              "currency": "USD",
+              "country": "USA",
+              "lotAreaValue": 29.61,
+              "lotAreaUnit": "acres"
+            }
+          },
+          "isSaved": false,
+          "isUserClaimingOwner": false,
+          "isUserConfirmedClaim": false,
+          "pgapt": "ForSale",
+          "sgapt": "For Sale (Broker)",
+          "zestimate": 609400,
+          "shouldShowZestimateAsPrice": false,
+          "has3DModel": false,
+          "hasVideo": false,
+          "isHomeRec": false,
+          "brokerName": "Keller Williams Woodlands",
+          "hasAdditionalAttributions": true,
+          "isFeaturedListing": false,
+          "availabilityDate": null,
+          "relaxed": true,
+          "ma": false
+        }
+      ],
+      "relaxedResultsHash": "24c5a2b1"
+    },
+    "searchList": {
+      "expansionDistance": 1,
+      "staticBaseUrl": "https://www.zillowstatic.com/static/",
+      "zeroResultsFilters": null,
+      "message": null,
+      "adsConfig": {
+        "navAdSlot": "zillow/search_results_1/buy_general/search_1",
+        "displayAdSlot": "zillow/search_results_1/buy_general/b_right_p1",
+        "targets": {
+          "zip": "77868",
+          "mlat": "30.349999999999998",
+          "zusr": "true",
+          "city": "Navasota",
+          "proptp": "sfh",
+          "listtp": "buy_general",
+          "searchtp": "unknown",
+          "filtered": "true",
+          "premieragent": "no",
+          "dma": "192",
+          "guid": "c3403aea-7b23-4a4f-9795-251f1e5bd980",
+          "agentnavads": "yes",
+          "state": "TX",
+          "mlong": "-95.95",
+          "cnty": "Grimes"
+        },
+        "needsUpdate": true
+      },
+      "totalResultCount": 3,
+      "resultsPerPage": 40,
+      "totalPages": 1,
+      "listResultsTitle": "Single Family Homes",
+      "resultContexts": [
+        {
+          "ssid": 63,
+          "context": "Copyright 2022, Houston REALTORS\u00ae Information Service, Inc.\nThe information provided is exclusively for consumers\u2019 personal, non-commercial use, and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. \nInformation is deemed reliable but not guaranteed.\n\nThe listing broker\u2019s offer of compensation is made only to participants of the MLS where the listing is filed. ",
+          "contextImage": "https://photos.zillowstatic.com/fp/c762e8317c35d5634ce97b86029da54d-zillow_web_95_35.jpg"
+        },
+        {
+          "ssid": 477,
+          "context": "IDX information is provided exclusively for personal, non-commercial use, and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing.\nInformation is deemed reliable but not guaranteed.\n\nThe listing broker\u2019s offer of compensation is made only to participants of the MLS where the listing is filed. ",
+          "contextImage": "https://photos.zillowstatic.com/fp/411aef8a574e8186e551bb0084f5fea4-zillow_web_95_35.jpg"
+        }
+      ],
+      "pageRules": "PropertySearchLookupResponseRules(isAdsRestricted=false, lowestLimitSearchResultsCount=null)",
+      "listTopSlotOnsiteMessage": {
+        "messages": [
+          {
+            "bucket": "BASELINE_TREATMENT",
+            "lastModified": 1643719591,
+            "passThrottle": true,
+            "placementId": 642,
+            "placementName": "SRPTopSlot",
+            "qualifiedTreatments": [],
+            "testPhase": "baseline",
+            "decisionContext": {
+              "guid": "c3403aea-7b23-4a4f-9795-251f1e5bd980",
+              "isMobileWeb": false,
+              "srpSearchType": "ForSale"
+            },
+            "eventId": "9a3c8563-6523-4899-a0f7-15eb0f567ba9",
+            "isGlobalHoldout": false,
+            "isPlacementHoldout": false,
+            "shouldDisplay": true
+          }
+        ]
+      },
+      "gdpUrl": "https://www.zillow.com/graphql/"
+    }
+  },
+  "categoryTotals": {
+    "cat1": {
+      "totalResultCount": 3
+    },
+    "cat2": {
+      "totalResultCount": 0
+    }
+  },
+  "autocompleteConfig": {
+    "address": {
+      "enabled": true,
+      "url": "https://aac.zillowstatic.com"
+    },
+    "region": {
+      "enabled": true,
+      "url": "https://ac.zillowstatic.com/",
+      "truliaUrl": "https://www.zillowstatic.com/autocomplete/v2/"
+    },
+    "regionAddress": {
+      "enabled": true,
+      "url": "https://www.zillowstatic.com/autocomplete/v3/"
+    },
+    "recentSearchLocalStorageKey": "recentSearchesEnhanced",
+    "centroid": {
+      "lat": 37.164051,
+      "lon": -96.8510195
+    },
+    "initSearchTerm": "Houston, TX",
+    "shouldShowSavedHomes": false,
+    "shouldShowSavedSearches": false,
+    "abKey": "c3403aea-7b23-4a4f-9795-251f1e5bd980",
+    "clientId": "static-search-page"
+  },
+  "searchBox": {
+    "initialValue": "Houston, TX"
+  },
+  "isZillowOwnedDeprecated": true
+}
