@@ -71,21 +71,21 @@ def getDaysOnZillow(listing):
 
 def getHouseSize(mls_data):
     try:
-        return mls_data['payload']['publicRecordsInfo']['totalSqFt']
+        return mls_data['payload']['publicRecordsInfo']['basicInfo']['totalSqFt']
     except:
         print("House size doesn't exist")
         return 0
 
 def getLotSize(mls_data):
     try:
-        return redfinData['payload']['publicRecordsInfo']['lotSqFt']
+        return mls_data['payload']['publicRecordsInfo']['basicInfo']['lotSqFt']
     except:
         print("Lot size doesn't exist")
         return 0
 
 def getYearBuilt(mls_data):
     try:
-        yearBuilt = redfinData['payload']['publicRecordsInfo']['yearBuilt']
+        return mls_data['payload']['publicRecordsInfo']['basicInfo']['yearBuilt']
     except:
         print("Year built doesn't exist")
         return 0
