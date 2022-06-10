@@ -180,10 +180,10 @@ if __name__ == "__main__":
                 northLatBound = mapBounds['north'] - 0.1 * deltaLat
                 westLngBound = mapBounds['west'] + 0.1 * deltaLng
 
+                print(f"searching section ({deltaLat},{deltaLng})",)
                 pg1_listings = scrapeZillow(url, northLatBound, westLngBound, 1)
                 totalPages = pg1_listings['cat1']['searchList']['totalPages']  # get total pages in this map section
-                print(f"searching section ({deltaLat},{deltaLng}): {totalPages} total pages...",)
-
+                print(f"{totalPages} total pages...")
                 # loop each page
                 for page in range(1, totalPages + 1):
                     print(f'getting data from page {page}')
