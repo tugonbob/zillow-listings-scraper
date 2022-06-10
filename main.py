@@ -64,6 +64,28 @@ def getDaysOnZillow(listing):
     else:
         return 0
 
+def getHouseSize(mls_data):
+    try:
+        return mls_data['payload']['publicRecordsInfo']['totalSqFt']
+    except:
+        print("House size doesn't exist")
+        return 0
+
+def getLotSize(mls_data):
+    try:
+        return redfinData['payload']['publicRecordsInfo']['lotSqFt']
+    except:
+        print("Lot size doesn't exist")
+        return 0
+
+def getYearBuilt(mls_data):
+    try:
+        yearBuilt = redfinData['payload']['publicRecordsInfo']['yearBuilt']
+    except:
+        print("Year built doesn't exist")
+        return 0
+
+
 def getSchoolsRating(mls_data):
     try:
         str = mls_data['payload']['schoolsAndDistrictsInfo']['sectionPreviewText']
@@ -79,6 +101,7 @@ def getSchoolsRating(mls_data):
 
         return numStr
     except:
+        print('school rating doesn\"t exist')
         return 0
 
 
@@ -163,7 +186,6 @@ if __name__ == "__main__":
                         listings = pg1_listings
                     else:
                         listings = scrapeZillow(url, northLatBound, westLngBound, page)
-                    if (args.verbose): print(json.dumps(listings, indent=4))
 
                     # loop each listing
                     for listing in listings["cat1"]['searchResults']['listResults']:
@@ -181,15 +203,12 @@ if __name__ == "__main__":
                         try:
                             print(address)
                             redfinData = scrapeRedfin(address)
-                            houseSize = redfinData['payload']['publicRecordsInfo']['totalSqFt']
-                            lotSize = redfinData['payload']['publicRecordsInfo']['lotSqFt']
-                            yearBuilt = redfinData['payload']['publicRecordsInfo']['yearBuilt']
-                            schoolsRating = getSchoolsRating(redfinData)
                         except:
-                            houseSize = 0
-                            lotSize = 0
-                            yearBuilt = 0
-                            schoolsRating = 0
+                            print('Redfin data could not be retrieved')
+                            houseSize = getHouseSize(redfinData)
+                            lotSize = getLotSize(redfinData)
+                            yearBuilt = getYearBuilt(redfinData)
+                            schoolsRating = getSchoolsRating(redfinData)
                         rentZestimate = getRentEstimate(listing)
                         rentToPrice = rentZestimate / price
                         tsv_writer.writerow([numDays, statusText, zillowUrl, image, price, zip, address, houseSize, lotSize, yearBuilt, schoolsRating, rentZestimate, rentToPrice])
