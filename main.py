@@ -22,13 +22,13 @@ def scrapeZillow(url, northLatBound, westLngBound, pageNum):
     isMapVisibleIndex = url.find('isMapVisible')
     
     # manipulate url's page and mapBounds
+    print('Getting data by trying proxies...')
     while True:
         for index, row in proxies.iterrows():
             proxy = {
                 'http': f'http://{row["IP Address"]}:{row["Port"]}',
                 'https': f'http://{row["IP Address"]}:{row["Port"]}',
             }       
-            print(index, proxy, row['Https'])
             try:
                 paginatedUrl = url[:paginationIndex+19] + '%22currentPage%22%3A' + str(pageNum) + '%7D%2C%22' + url[paginationIndex+28:mapBoundsIndex] + 'mapBounds%22%3A%7B%22west%22%3A' + str(westLngBound) + '%2C%22east%22%3A' + str(westLngBound+0.1) + '%2C%22south%22%3A' + str(northLatBound-0.1) + '%2C%22north%22%3A' + str(northLatBound) + '%7D%2C%22' + url[isMapVisibleIndex:]
                 soup = BeautifulSoup(requests.get(paginatedUrl, headers=headers, allow_redirects=False, proxies=proxy, timeout=5).content, "html.parser")
@@ -43,7 +43,7 @@ def scrapeZillow(url, northLatBound, westLngBound, pageNum):
 
 def scrapeRedfin(address):
     try:
-        print(">", address)
+        print(address)
         rf = Redfin()
         response = rf.search(address)
         url = response['payload']['exactMatch']['url']
@@ -52,7 +52,7 @@ def scrapeRedfin(address):
         mls_data = rf.below_the_fold(property_id)
         return mls_data
     except:
-        print(f'redfin data could not be retrieved for address: {address}')
+        print(f'> redfin data could not be retrieved')
         return None
 
 def getRentEstimate(listing):
@@ -60,6 +60,7 @@ def getRentEstimate(listing):
     try:
         return listing['hdpData']['homeInfo']['rentZestimate']
     except:
+        print("> Rent estimate doesn't exist")
         return 0
 
 def getDaysOnZillow(listing):
@@ -67,27 +68,28 @@ def getDaysOnZillow(listing):
     if (listing['variableData']['type'] == 'DAYS_ON'):
         return listing['variableData']['text'].split()[0]
     else:
+        print("> Days on Zillow doesn't exist")
         return 0
 
 def getHouseSize(mls_data):
     try:
         return mls_data['payload']['publicRecordsInfo']['basicInfo']['totalSqFt']
     except:
-        print("House size doesn't exist")
+        print("> House size doesn't exist")
         return 0
 
 def getLotSize(mls_data):
     try:
         return mls_data['payload']['publicRecordsInfo']['basicInfo']['lotSqFt']
     except:
-        print("Lot size doesn't exist")
+        print("> Lot size doesn't exist")
         return 0
 
 def getYearBuilt(mls_data):
     try:
         return mls_data['payload']['publicRecordsInfo']['basicInfo']['yearBuilt']
     except:
-        print("Year built doesn't exist")
+        print("> Year built doesn't exist")
         return 0
 
 
@@ -106,7 +108,7 @@ def getSchoolsRating(mls_data):
 
         return numStr
     except:
-        print('school rating doesn\"t exist')
+        print('> school rating doesn\"t exist')
         return 0
 
 
