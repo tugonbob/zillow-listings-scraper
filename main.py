@@ -5,6 +5,14 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import math
+import pandas as pd
+import time
+
+def scrapeProxies():
+    resp = requests.get('https://free-proxy-list.net/') 
+    df = pd.read_html(resp.text)[0]
+    # df = df.loc[df['Https'] == 'yes']
+    return df
 
 # manipulate url to get the listings around the given lat, lng and page
 # returns huge json with lots of other useful data that isn't used in the script
@@ -14,19 +22,29 @@ def scrapeZillow(url, northLatBound, westLngBound, pageNum):
     mapBoundsIndex = url.find('mapBounds')
     isMapVisibleIndex = url.find('isMapVisible')
 
+    
     # manipulate url's page and mapBounds
-    paginatedUrl = url[:paginationIndex+19] + '%22currentPage%22%3A' + str(pageNum) + '%7D%2C%22' + url[paginationIndex+28:mapBoundsIndex] + 'mapBounds%22%3A%7B%22west%22%3A' + str(westLngBound) + '%2C%22east%22%3A' + str(westLngBound+0.1) + '%2C%22south%22%3A' + str(northLatBound-0.1) + '%2C%22north%22%3A' + str(northLatBound) + '%7D%2C%22' + url[isMapVisibleIndex:]
-    soup = BeautifulSoup(requests.get(paginatedUrl, headers=headers, allow_redirects=False).content, "html.parser")
-
-    # uncomment this to see the manipulated url
-    # print(paginatedUrl)
-
-    data = json.loads(
-        soup.select_one("script[data-zrr-shared-data-key]")
-        .contents[0]
-        .strip("!<>-")
-    )
-    return data
+    while True:
+        for index, row in proxies.iterrows():
+            proxy = {
+                'http': f'http://{row["IP Address"]}:{row["Port"]}',
+                'https': f'http://{row["IP Address"]}:{row["Port"]}',
+            }       
+            print(index, proxy, row['Https'])
+            start_time = time.time()
+            try:
+                paginatedUrl = url[:paginationIndex+19] + '%22currentPage%22%3A' + str(pageNum) + '%7D%2C%22' + url[paginationIndex+28:mapBoundsIndex] + 'mapBounds%22%3A%7B%22west%22%3A' + str(westLngBound) + '%2C%22east%22%3A' + str(westLngBound+0.1) + '%2C%22south%22%3A' + str(northLatBound-0.1) + '%2C%22north%22%3A' + str(northLatBound) + '%7D%2C%22' + url[isMapVisibleIndex:]
+                soup = BeautifulSoup(requests.get(paginatedUrl, headers=headers, allow_redirects=False, proxies=proxy, timeout=1).content, "html.parser")
+                print('seconds:', time.time() - start_time)
+                data = json.loads(
+                    soup.select_one("script[data-zrr-shared-data-key]")
+                    .contents[0]
+                    .strip("!<>-")
+                )
+            except:
+                continue
+            return data
+            
 
 def getRentEstimate(listing):
     # if monthly rent estimate doesn't exist, set rent estimate to 0
@@ -45,6 +63,8 @@ def getDaysOnZillow(listing):
 def isFloat(n):
     # check if n is a valid number
     return n.lstring('-').replace('.', '', 1).isDigit()
+
+proxies = scrapeProxies()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -110,32 +130,32 @@ if __name__ == "__main__":
 
         for deltaLat in range(rows):
             for deltaLng in range(cols):
-                try:
-                    # get north and west bound in this map section
-                    northLatBound = mapBounds['north'] - 0.1 * deltaLat
-                    westLngBound = mapBounds['west'] + 0.1 * deltaLng
+                # try:
+                # get north and west bound in this map section
+                northLatBound = mapBounds['north'] - 0.1 * deltaLat
+                westLngBound = mapBounds['west'] + 0.1 * deltaLng
 
-                    totalPages = scrapeZillow(url, northLatBound, westLngBound, 1)['cat1']['searchList']['totalPages']  # get total pages in this map section
-                    print(f"searching section ({deltaLat},{deltaLng}): {totalPages} total pages...",)
+                totalPages = scrapeZillow(url, northLatBound, westLngBound, 1)['cat1']['searchList']['totalPages']  # get total pages in this map section
+                print(f"searching section ({deltaLat},{deltaLng}): {totalPages} total pages...",)
 
-                    # loop each page
-                    for page in range(1, totalPages + 1):
-                        print(f'getting data from page {page}')
-                        listings = scrapeZillow(url, northLatBound, westLngBound, page)
-                        if (args.verbose): print(json.dumps(listings, indent=4))
+                # loop each page
+                for page in range(1, totalPages + 1):
+                    print(f'getting data from page {page}')
+                    listings = scrapeZillow(url, northLatBound, westLngBound, page)
+                    if (args.verbose): print(json.dumps(listings, indent=4))
 
-                        # loop each listing
-                        for listing in listings["cat1"]['searchResults']['listResults']:
+                    # loop each listing
+                    for listing in listings["cat1"]['searchResults']['listResults']:
 
-                            # write listing data to tsv file
-                            zip = listing['hdpData']['homeInfo']['zipcode']
-                            numDays = getDaysOnZillow(listing)
-                            statusText = listing['statusText']
-                            zillowUrl = listing['detailUrl']
-                            image = listing['imgSrc']
-                            price = listing['unformattedPrice']
-                            rentZestimate = getRentEstimate(listing)
+                        # write listing data to tsv file
+                        zip = listing['hdpData']['homeInfo']['zipcode']
+                        numDays = getDaysOnZillow(listing)
+                        statusText = listing['statusText']
+                        zillowUrl = listing['detailUrl']
+                        image = listing['imgSrc']
+                        price = listing['unformattedPrice']
+                        rentZestimate = getRentEstimate(listing)
 
-                            tsv_writer.writerow([zip, numDays, statusText, zillowUrl, image, price, rentZestimate])
-                except:                        
-                    print('something went wrong with this section')
+                        tsv_writer.writerow([zip, numDays, statusText, zillowUrl, image, price, rentZestimate])
+                # except:                        
+                    # print('something went wrong with this section')
