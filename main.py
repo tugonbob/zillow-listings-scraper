@@ -42,13 +42,18 @@ def scrapeZillow(url, northLatBound, westLngBound, pageNum):
             return data
 
 def scrapeRedfin(address):
-    rf = Redfin()
-    response = rf.search(address)
-    url = response['payload']['exactMatch']['url']
-    initial_info = rf.initial_info(url)
-    property_id = initial_info['payload']['propertyId']
-    mls_data = rf.below_the_fold(property_id)
-    return mls_data
+    try:
+        print(">", address)
+        rf = Redfin()
+        response = rf.search(address)
+        url = response['payload']['exactMatch']['url']
+        initial_info = rf.initial_info(url)
+        property_id = initial_info['payload']['propertyId']
+        mls_data = rf.below_the_fold(property_id)
+        return mls_data
+    except:
+        print(f'redfin data could not be retrieved for address: {address}')
+        return None
 
 def getRentEstimate(listing):
     # if monthly rent estimate doesn't exist, set rent estimate to 0
@@ -200,15 +205,11 @@ if __name__ == "__main__":
                         price = listing['unformattedPrice']
                         zip = homeInfo['zipcode']
                         address = f"{homeInfo['streetAddress']}, {homeInfo['city']}, {homeInfo['state']} {homeInfo['zipcode']}"
-                        try:
-                            print(address)
-                            redfinData = scrapeRedfin(address)
-                        except:
-                            print('Redfin data could not be retrieved')
-                            houseSize = getHouseSize(redfinData)
-                            lotSize = getLotSize(redfinData)
-                            yearBuilt = getYearBuilt(redfinData)
-                            schoolsRating = getSchoolsRating(redfinData)
+                        redfinData = scrapeRedfin(address)
+                        houseSize = getHouseSize(redfinData)
+                        lotSize = getLotSize(redfinData)
+                        yearBuilt = getYearBuilt(redfinData)
+                        schoolsRating = getSchoolsRating(redfinData)
                         rentZestimate = getRentEstimate(listing)
                         rentToPrice = rentZestimate / price
                         tsv_writer.writerow([numDays, statusText, zillowUrl, image, price, zip, address, houseSize, lotSize, yearBuilt, schoolsRating, rentZestimate, rentToPrice])
