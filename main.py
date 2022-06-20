@@ -196,22 +196,24 @@ if __name__ == "__main__":
 
                     # loop each listing
                     for listing in listings["cat1"]['searchResults']['listResults']:
+                        try:
+                            homeInfo = listing['hdpData']['homeInfo']
 
-                        homeInfo = listing['hdpData']['homeInfo']
-
-                        # write listing data to tsv file
-                        numDays = getDaysOnZillow(listing)
-                        statusText = listing['statusText']
-                        zillowUrl = listing['detailUrl']
-                        image = listing['imgSrc']
-                        price = listing['unformattedPrice']
-                        zip = homeInfo['zipcode']
-                        address = f"{homeInfo['streetAddress']}, {homeInfo['city']}, {homeInfo['state']} {homeInfo['zipcode']}"
-                        redfinData = scrapeRedfin(address)
-                        houseSize = getHouseSize(redfinData)
-                        lotSize = getLotSize(redfinData)
-                        yearBuilt = getYearBuilt(redfinData)
-                        schoolsRating = getSchoolsRating(redfinData)
-                        rentZestimate = getRentEstimate(listing)
-                        rentToPrice = rentZestimate / price
-                        tsv_writer.writerow([numDays, statusText, zillowUrl, image, price, zip, address, houseSize, lotSize, yearBuilt, schoolsRating, rentZestimate, rentToPrice])
+                            # write listing data to tsv file
+                            numDays = getDaysOnZillow(listing)
+                            statusText = listing['statusText']
+                            zillowUrl = listing['detailUrl']
+                            image = listing['imgSrc']
+                            price = listing['unformattedPrice']
+                            zip = homeInfo['zipcode']
+                            address = f"{homeInfo['streetAddress']}, {homeInfo['city']}, {homeInfo['state']} {homeInfo['zipcode']}"
+                            redfinData = scrapeRedfin(address)
+                            houseSize = getHouseSize(redfinData)
+                            lotSize = getLotSize(redfinData)
+                            yearBuilt = getYearBuilt(redfinData)
+                            schoolsRating = getSchoolsRating(redfinData)
+                            rentZestimate = getRentEstimate(listing)
+                            rentToPrice = rentZestimate / price
+                            tsv_writer.writerow([numDays, statusText, zillowUrl, image, price, zip, address, houseSize, lotSize, yearBuilt, schoolsRating, rentZestimate, rentToPrice])
+                        except:
+                            print('something went wrong with this listing')
