@@ -7,6 +7,7 @@ import csv
 import math
 import pandas as pd
 import time
+import random
 
 def scrapeProxies():
     resp = requests.get('https://free-proxy-list.net/') 
@@ -16,7 +17,7 @@ def scrapeProxies():
 
 # manipulate url to get the listings around the given lat, lng and page
 # returns huge json with lots of other useful data that isn't used in the script
-def scrapeZillow(url, northLatBound, westLngBound, pageNum):
+def scrapeZillowWithProxy(url, northLatBound, westLngBound, pageNum):
     # get url's key index's. Used to manipulate url
     paginationIndex = url.find('pagination')
     mapBoundsIndex = url.find('mapBounds')
@@ -44,6 +45,29 @@ def scrapeZillow(url, northLatBound, westLngBound, pageNum):
             except:
                 continue
             return data
+
+
+def scrapeZillow(url, northLatBound, westLngBound, pageNum):
+    # sleep to avoid getting ip blocked by Zillow
+    sleeptime = random.uniform(2,4)
+    print(f"Sleeping for {sleeptime}")
+    time.sleep(sleeptime)
+
+    # get url's key index's. Used to manipulate url
+    paginationIndex = url.find('pagination')
+    mapBoundsIndex = url.find('mapBounds')
+    isMapVisibleIndex = url.find('isMapVisible')
+
+    
+    # manipulate url's page and mapBounds
+    paginatedUrl = url[:paginationIndex+19] + '%22currentPage%22%3A' + str(pageNum) + '%7D%2C%22' + url[paginationIndex+28:mapBoundsIndex] + 'mapBounds%22%3A%7B%22west%22%3A' + str(westLngBound) + '%2C%22east%22%3A' + str(westLngBound+0.1) + '%2C%22south%22%3A' + str(northLatBound-0.1) + '%2C%22north%22%3A' + str(northLatBound) + '%7D%2C%22' + url[isMapVisibleIndex:]
+    soup = BeautifulSoup(requests.get(paginatedUrl, headers=headers).content, "html.parser")
+    data = json.loads(
+        soup.select_one("script[data-zrr-shared-data-key]")
+        .contents[0]
+        .strip("!<>-")
+    )
+    return data
             
 
 def getRentEstimate(listing):
