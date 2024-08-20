@@ -2,8 +2,7 @@ from homeharvest import scrape_property
 from datetime import datetime, timedelta
 import sys
 import os
-import random
-from proxy_manager import get_valid_proxies
+from proxy_manager import ProxyManager
 
 
 def generate_date_range(date_from, days=1):
@@ -12,21 +11,22 @@ def generate_date_range(date_from, days=1):
 
 
 if __name__ == "__main__":
-    try:
-        valid_proxies = get_valid_proxies()
-        random.shuffle(valid_proxies)
+    proxyManager = ProxyManager()
+    args = {"days_to_scrape": 20, "period": 5}
 
+    try:
         filename = f"houston_sold.csv"
         end_day = datetime.now()
-        start_day = end_day - timedelta(days=20)
+        start_day = end_day - timedelta(days=args["days_to_scrape"])
+        period = args["period"]
 
         date = start_day
-
+        properties = None
         while date < end_day:
-            date_from, date_to = generate_date_range(date, days=5)
+            date_from, date_to = generate_date_range(date, days=period)
             print(date_from + " " + date_to)
 
-            for proxy in valid_proxies:
+            for proxy in proxyManager.valid_proxies:
                 try:
                     print(f"Trying {proxy}")
                     properties = scrape_property(
@@ -50,8 +50,7 @@ if __name__ == "__main__":
 
             # refresh proxy list if all of them don't work
             if properties is None:
-                valid_proxies = get_valid_proxies()
-                random.shuffle(valid_proxies)
+                valid_proxies = proxyManager.refresh_valid_proxies()
 
             properties.to_csv(
                 filename,
@@ -60,7 +59,7 @@ if __name__ == "__main__":
                 header=not os.path.exists(filename),
             )
 
-            date += timedelta(days=6)
+            date += timedelta(days=period + 1)
 
     except KeyboardInterrupt:
         print("\nProgram interrupted by user. Exiting...")
