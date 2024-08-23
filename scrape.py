@@ -41,10 +41,10 @@ if __name__ == "__main__":
     proxyManager = ProxyManager()
     cityManager = CityManager()
     cities = cityManager.get_cities_list()
-    args = {"days_to_scrape": 5000, "listing_type": "sold"}
+    args = {"days_to_scrape": 3500, "listing_type": "sold"}
     listing_type = args["listing_type"]
 
-    for city in cities[:3]:
+    for city in cities:
         # create output path
         city_name = city["city"] + ", " + city["state_id"]
         out_name = city["city"] + "_" + city["state_id"] + ".csv"
@@ -107,7 +107,9 @@ if __name__ == "__main__":
                 except KeyboardInterrupt:
                     sys.exit()
                 except:
-                    # if scrape failed, try next proxy
+                    # if scrape failed, remove proxy and try next proxy
+                    if proxy in proxyManager.valid_proxies:
+                        proxyManager.valid_proxies.remove(proxy)
                     continue
 
             # refresh proxy list if none of the proxies work
