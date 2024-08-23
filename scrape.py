@@ -1,11 +1,13 @@
-from homeharvest import scrape_property
-from datetime import datetime, timedelta
-import sys
 import os
-from proxy_manager import ProxyManager
-import time
 import random
+import sys
+import time
+from datetime import datetime, timedelta
+
+from homeharvest import scrape_property
+
 from city_manager import CityManager
+from proxy_manager import ProxyManager
 
 
 def generate_date_range(date_from, days=1):
@@ -46,7 +48,7 @@ if __name__ == "__main__":
         # create output path
         city_name = city["city"] + ", " + city["state_id"]
         out_name = city["city"] + "_" + city["state_id"] + ".csv"
-        out_path = f"scraped_data/{listing_type}/{out_name}"
+        out_path = f"data/{listing_type}/{out_name}"
 
         # define start and stop date
         end_day = datetime.now()

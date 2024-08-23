@@ -1,8 +1,8 @@
-from fp.fp import FreeProxy
-import requests
-import threading
 import queue
 import random
+import threading
+import requests
+from fp.fp import FreeProxy
 
 
 class ProxyManager:

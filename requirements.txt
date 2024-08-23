@@ -1,5 +1,2 @@
-requests
-bs4
-pandas
-lxml
-redfin
+homeharvest
+free-proxy

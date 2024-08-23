@@ -1,10 +1,12 @@
-# ZillowListingsScraper (depreciated due to Zillow's bot protection)
-Scrapes Zillow's listings through url manipulation.
+# Real Estate Listing Scraper
+
+Scrapes listings through Homeharvest. Scrapes the realtor.com website.
 
 # Quick Start:
+
 ```
-git clone https://github.com/tugonbob/ZillowListingsScraper.git
+conda create -n homeharvest python=3.11 -y
+conda activate homeharvest
 pip install -r requirements.txt
+python scrape.py
 ```
-Set the latlng of map bounds and run. Default map bounds is Houston
-- ```python main.py -n 30.4 -s 29.2 -e -94.7 -w -96```
