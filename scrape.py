@@ -17,7 +17,7 @@ def generate_date_range(date_from, days=1):
 
 def random_sleep():
     # used to avoid bot detection on consecutive api call with same proxy
-    time_to_sleep = random.uniform(0, 5)
+    time_to_sleep = random.uniform(0, 3)
     print(f"Sleeping for {round(time_to_sleep, 1)}")
     time.sleep(time_to_sleep)
 
@@ -41,10 +41,10 @@ if __name__ == "__main__":
     proxyManager = ProxyManager()
     cityManager = CityManager()
     cities = cityManager.get_cities_list()
-    args = {"days_to_scrape": 10, "listing_type": "sold"}
+    args = {"days_to_scrape": 5000, "listing_type": "sold"}
     listing_type = args["listing_type"]
 
-    for city in cities:
+    for city in cities[:3]:
         # create output path
         city_name = city["city"] + ", " + city["state_id"]
         out_name = city["city"] + "_" + city["state_id"] + ".csv"
